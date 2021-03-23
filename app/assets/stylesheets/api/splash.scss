@@ -1,6 +1,97 @@
+.top-part{
+    font-family: Helvetica,Arial,sans-serif;
+    text-decoration: none;
+    text-align: center;
+    line-height: 140%;
+    font-weight: 600;
+    a{
+        margin: 10px;
+        padding: 10px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+}
 .login_button{
     background-color: white;
     color:black;
-    font-weight: 300;
-    font-size: 12;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 40px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 7px 16px;
+    font-family: sans-serif;
+
 }
+
+
+.splash-midsection{
+    display: grid;
+    padding: 120px 40px;
+    
+        .blurb{
+            margin-bottom: 8px;
+            .headblurb{
+                font-size: 56px;
+                font-weight: 1000;
+                line-height: 120%;
+                font-family:  'Catamaran',Arial,sans-serif;
+                display: block;
+                text-align: center;
+            }
+
+            .blurb2{
+                display: block;
+                text-align: center;
+                font-family: 'Catamaran',Arial,sans-serif;;
+                margin: 40px;
+                font-size: 20px;
+                line-height: 32px;
+                flex-direction: column;
+            }
+        }
+
+        .button-div{
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            
+            .splash-browser{
+                background-color: black;
+                color: white;
+                padding: 18px 32px;
+                margin-top: 24px;
+                text-decoration: none;
+                font-size: 19px;
+                font-family: 'Catamaran',Arial,sans-serif;;
+                display: flex;
+                justify-content: space-between;
+                border-radius: 40px;
+                cursor: pointer;
+            
+
+            }
+
+            .splash-git{
+                background-color: white;
+                color: black;
+                margin-top: 24px;
+                margin-right: 24px;
+                padding: 18px 32px;
+                text-decoration: none;
+                font-size: 19px;
+                font-family: Helvetica,Arial,sans-serif;;
+                display: flex;
+                justify-content: space-between;
+                border-radius: 40px;
+                cursor: pointer;
+            
+                
+            }
+
+        }
+}
+
