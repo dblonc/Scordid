@@ -10,6 +10,7 @@ class Signup extends React.Component {
             password: ""
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSuccessfulSignIn = this.handleSuccessfulSignIn.bind(this)
     }
 
     update(field) {
@@ -23,7 +24,29 @@ class Signup extends React.Component {
         const user = Object.assign({}, this.state);
         this.props.processForm(user);
     }
-    
+    handleDemoLogin() {
+        return this.setState({
+            username: "demouser",
+            password: "demouser"
+        })
+    }
+
+    renderErrors() {
+        return (
+            <ul>
+                {this.props.errors.map((error, i) => (
+                    <li key={`error-${i}`}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
+    };
+
+    handleSuccessfulSignIn(data) {
+        this.props.history.push("/servers");
+    };
+
     render(){
         return (
             <div className = "signup-container">
@@ -31,6 +54,7 @@ class Signup extends React.Component {
                     <h3>Create an account</h3>
                     <label>EMAIL   
                     <br/>
+                        {this.renderErrors()}
                         <input type="text" value={this.state.email} onChange={this.update('email')}/>
                     </label>
                     <br/>
@@ -49,7 +73,7 @@ class Signup extends React.Component {
                     <Link to="/login">Already have an account?</Link>
                 </form>
 
-
+                
 
                 
             </div>

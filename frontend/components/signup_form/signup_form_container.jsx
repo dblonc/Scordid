@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import { signup } from '../../actions/session_actions';
 import Signup from './signup';
 
-const mSTP = (state) => ({
+const mSTP = ({errors}) => ({
         formType: 'signup',
+        errors: errors.session,
       
 });
 

@@ -6,8 +6,11 @@ import { Link } from 'react-router-dom';
 class Splash extends React.Component{
     constructor(props){
         super(props)
+
+        
     }
    
+
 
     render(){
         
@@ -31,17 +34,16 @@ class Splash extends React.Component{
                    <div className= "blurb">
                         <h1 className="headblurb">Your place to talk</h1>
                         <div className = 'blurb2'>
-                            Whether you’re part of a school club, gaming group, worldwide art community, or just a handful of friends that want to spend time together, Discord makes it easy to talk every day and hang out more often.
+                            Whether you’re part of a school club, gaming group, worldwide art community, or just a handful of friends that want to spend time together, Scordid makes it easy to talk every day and hang out more often.
                         </div>
                     </div>
                     <div className="button-div">
                         <a href='https://github.com/dblonc'><button className="splash-git">Check Out My Github</button></a>
                         <Link to="/login"> <button className="splash-browser">Open Scordid in your browser</button></Link>
                     </div>
+                    
                 </div>
-                <div className="background">
-                    <img className="swagguys" src="/home/dblonc/Desktop/fullstackproject/scordid/app/assets/images/dcimages/swagguys.svg" alt=""/>
-                </div>
+               
                
 
                 

@@ -9,6 +9,8 @@ class Login extends React.Component {
             password: ""
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemoLogin = this.handleDemoLogin.bind(this);
+        this.handleSuccessfulSignIn = this.handleSuccessfulSignIn.bind(this)
     }
 
     update(field) {
@@ -22,6 +24,33 @@ class Login extends React.Component {
         const user = Object.assign({}, this.state);
         this.props.processForm(user);
     }
+
+    handleDemoLogin(){
+        const user = {
+            username: "demouser",
+            password: "demouser"
+        }
+        this.props.processForm(user)
+    }
+    
+    renderErrors() {
+        return (
+            <ul>
+                {this.props.errors.map((error, i) => (
+                    <li key={`error-${i}`}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
+    };
+
+
+    handleSuccessfulSignIn(data) {
+        if(this.props.processForm(user)){
+        this.props.history.push("/servers");
+        }
+    };
     
     render(){
         return (
@@ -33,6 +62,7 @@ class Login extends React.Component {
                     <br/>
                     <label> USERNAME OR EMAIL   
                     <br/>
+                        {this.renderErrors()}
                         <input type="text" value={this.state.username} onChange={this.update('username')}/>
                     </label>
                     <br/>
@@ -44,7 +74,7 @@ class Login extends React.Component {
                     <button type="submit" className="login-submit" value={this.props.formType} > Login </button>
                     <p>Need an account? <Link to="/signup">Register</Link> </p>
                 </form>
-
+                <button onClick={this.handleDemoLogin}>Demo User</button>
 
 
                 
