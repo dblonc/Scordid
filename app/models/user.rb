@@ -8,6 +8,12 @@ validates :username, length: {minimum: 4}
 attr_reader :password 
 after_initialize :ensure_session_token
 
+has_many :ownedservers,
+foreign_key: :owner_id,
+class_name: :Server
+
+
+
 
     def self.find_by_credentials(username, password)
         user = User.find_by(username: username)

@@ -1,3 +1,7 @@
+.whole-splash{
+    background-color: rgb(70, 55, 167);
+}
+
 .top-part{
     font-family: Helvetica,Arial,sans-serif;
     text-decoration: none;
@@ -9,6 +13,11 @@
         padding: 10px;
         cursor: pointer;
         text-decoration: none;
+        color: white;
+    }
+
+    a:hover{
+        text-decoration: underline;
     }
 }
 .login_button{
@@ -23,7 +32,47 @@
     text-decoration: none;
     padding: 7px 16px;
     font-family: sans-serif;
+    border:none;
+    text-decoration: none;
 
+
+}
+
+.logout_button{
+    background-color: white;
+    color:black;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 40px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 7px 16px;
+    font-family: sans-serif;
+    border:none;
+    text-decoration: none;
+
+}
+
+.login_button:hover{
+    transition-property: background-color,box-shadow,color;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+    background-color: white;
+    box-shadow: 0 2px 2px grey;
+    color: #7289da;
+    text-decoration: none;
+}
+.logout_button:hover{
+    transition-property: background-color,box-shadow,color;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+    background-color: white;
+    box-shadow: 0 2px 2px grey;
+    color: #7289da;
+    text-decoration: none;
+ 
 }
 
 
@@ -71,9 +120,18 @@
                 justify-content: space-between;
                 border-radius: 40px;
                 cursor: pointer;
-            
+                border:none;
 
             }
+
+            .splash-browser:hover{
+                transition-property: background-color,box-shadow;
+                transition-duration: .2s;
+                transition-timing-function: ease-in-out;
+                background-color: #36393f;
+                box-shadow: 0 8px 15px grey;
+            }
+
 
             .splash-git{
                 background-color: white;
@@ -88,8 +146,18 @@
                 justify-content: space-between;
                 border-radius: 40px;
                 cursor: pointer;
+                border: none;
             
                 
+            }
+
+            .splash-git:hover{
+                transition-property: background-color,box-shadow,color;
+                transition-duration: .2s;
+                transition-timing-function: ease-in-out;
+                background-color: white;
+                box-shadow: 0 8px 15px grey;
+                color: #7289da;
             }
 
         }

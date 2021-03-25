@@ -4,7 +4,8 @@ import Servers from './servers'
 import { login, logout } from '../../actions/session_actions';
 import { Link } from 'react-router-dom';
 
-const mSTP = (state) =>({
+const mSTP = ({errors}) =>({
+    errors: errors.session,
 
 });
 

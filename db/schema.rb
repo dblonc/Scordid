@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_17_190812) do
+ActiveRecord::Schema.define(version: 2021_03_25_015648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "create_servers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "servers", force: :cascade do |t|
+    t.string "servername", null: false
+    t.string "description", null: false
+    t.boolean "private_server?", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "owner_id", null: false
+    t.index ["owner_id"], name: "index_servers_on_owner_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username", null: false

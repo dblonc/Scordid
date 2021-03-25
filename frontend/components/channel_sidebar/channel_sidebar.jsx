@@ -12,8 +12,10 @@ class ChannelSidebar extends React.Component {
     render() {
         return (
             <div className="channel-sidebar-nav">
-                <h3 className="channel-title">Channel Name</h3>
-                <span className="channel-listing"># channel no 1</span>
+                    <h3 className="channel-title">Channel Name</h3>
+                <div classname="me-channel">
+                    <span className="channel-listing"># channel no 1</span>
+                </div>
                 <br />
                 <span className="channel-listing"># channel no 2</span>
             </div>

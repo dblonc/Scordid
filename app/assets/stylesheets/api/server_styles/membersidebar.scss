@@ -1,0 +1,17 @@
+.member-sidebar-nav{
+   background-color: #2f3136;
+};
+
+.member-listing{
+    font-size: 16px;
+    color: white;
+    font-family: 'Catamaran',Arial,sans-serif;
+    font-weight: 500;
+    display: flex;
+   cursor: pointer;
+    width: 250px;
+};
+
+.member-listing:hover{
+    background-color: #51545c;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -55,26 +56,38 @@ class Login extends React.Component {
     render(){
         return (
             <div className = "login-container">
+                
+                <div className = "login-box">
+               <div className="form-section">    
                 <form onSubmit = {this.handleSubmit} className="login-form">
                     <h3>Welcome Back!</h3>
-                
+                    
                     <span>We're so excited to see you again!</span>
                     <br/>
-                    <label> USERNAME OR EMAIL   
-                    <br/>
                         {this.renderErrors()}
-                        <input type="text" value={this.state.username} onChange={this.update('username')}/>
+                    <label> USERNAME OR EMAIL   
+                         <br />
+                        <input className = "email-box" type="text" value={this.state.username} onChange={this.update('username')}/>
                     </label>
                     <br/>
                     <label> PASSWORD
                         <br/>
-                        <input type="password" value={this.state.password} onChange={this.update('password')}/>
+                        <input className = "password-box" type="password" value={this.state.password} onChange={this.update('password')}/>
                     </label>
                     <br />
                     <button type="submit" className="login-submit" value={this.props.formType} > Login </button>
                     <p>Need an account? <Link to="/signup">Register</Link> </p>
+                   
+                        
                 </form>
-                <button onClick={this.handleDemoLogin}>Demo User</button>
+                    </div>
+                    <div className="right-side-box">
+                        <h3>Log in with Demo Button</h3>
+                        <p>Press this button to log in instantly.</p>
+                        <button className="demo-button" onClick={this.handleDemoLogin}>Demo User</button>
+                    </div>
+            </div>
+                
 
 
                 

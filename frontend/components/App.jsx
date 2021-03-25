@@ -7,7 +7,6 @@ import signup from "./signup_form/signup_form_container";
 import {AuthRoute} from '../util/route_util'
 import {ProtectedRoute} from '../util/route_util'
 import SplashContainer from "./Splash/Splash_container";
-import Servers from './server_component/servers'
 import serverContainer from "./server_component/server_container";
 
 

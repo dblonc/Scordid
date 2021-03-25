@@ -12,10 +12,14 @@ class ServerSideBar extends React.Component {
     render() {
         return (
             <div className = "sidebarnav">
-                <a href="#/">
-                <div className="server-icon1">
-                    
+                <a href="#/@me">
+                <div className="server-icon-me">
                 </div>
+                <div className= "separator"></div>
+                </a>
+                <a href="#/server1/channel1">
+                    <div className="server-icon-1">
+                    </div>
                 </a>
             </div>
         )

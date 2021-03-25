@@ -1,0 +1,47 @@
+.sidebarnav{
+    align-items: center;
+    flex-direction: column;
+    background-color: #202225;
+    min-width: 75px;
+    height: 100vh;
+    padding: 12px 0 0;
+    font-family: 'Catamaran',Arial,sans-serif;
+    left: 0;
+    
+}
+
+.server-icon-me{
+    background-color: pink;
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    display: flex;
+    margin: 5px auto;
+
+}
+.server-icon-me:hover{
+    border-radius: 16px;
+    transition: .25s;
+}
+.server-icon-1:hover{
+    border-radius: 16px;
+    transition: .25s;
+}
+.server-icon-1{
+    background-color: blue;
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    display: flex;
+    margin: 5px auto;
+
+};
+
+.separator{
+    height: 2px;
+    width: 32px;
+    border-radius: 1px;
+    background-color: gray;
+   align-items: center;
+   margin: 5px auto;
+}

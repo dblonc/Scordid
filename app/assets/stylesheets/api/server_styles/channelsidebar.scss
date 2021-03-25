@@ -4,7 +4,7 @@
     padding: 20px;
     background-color: #2f3136;
     border-bottom: 5px #202225;
-    font-family: Helvetica,Arial,sans-serif;
+    font-family: 'Catamaran',Arial,sans-serif;
     color: white;
     margin: 0;
  
@@ -16,15 +16,18 @@
 }
 
 .channel-listing{
+    display: flex;
     font-size: 16px;
-    color: white;
-    font-family: Helvetica,Arial,sans-serif;
+    color: gray;
+    font-family: 'Catamaran',Arial,sans-serif;
     font-weight: 500;
-    padding: 20px;
    cursor: pointer;
     width: 250px;
+    align-items: center;
 };
 
 .channel-listing:hover{
     background-color: #51545c;
+    color: white;
 }
+
