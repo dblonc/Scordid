@@ -4,7 +4,7 @@ class Api::ServersController < ApplicationController
         @server = Server.create(strong_params)
         @server.owner_id = current_user.id
 
-        if @server.save!
+        if @server.save
             render :show
         else
             render json: @user.errors.full_messages, status: 422
@@ -23,7 +23,7 @@ class Api::ServersController < ApplicationController
         else
             render :edit
         end
-        
+
     end
 
     def destroy
