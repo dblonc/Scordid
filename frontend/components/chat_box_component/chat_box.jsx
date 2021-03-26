@@ -12,7 +12,12 @@ class Chatbox extends React.Component {
     render() {
         return (
             <div className="chat-window">
-                <p>chatting</p>
+                <div className="messages">
+
+                </div>
+                <div className="chat-area">
+                    <input placeholder="Message this channel" type="text" className = "chat-input" ></input>
+                </div>
             </div>
         )
     }

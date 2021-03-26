@@ -57,8 +57,14 @@ class Login extends React.Component {
         return (
             <div className = "login-container">
                 
+             <div className="background">
+                    <a href='/'><img className="splash-white-logo" src={scordidwhiteURL} /> </a>
+                        <img src={window.loginwpURL} />
+            
                 <div className = "login-box">
-               <div className="form-section">    
+                   
+               <div className="form-section">
+                        
                 <form onSubmit = {this.handleSubmit} className="login-form">
                     <h3>Welcome Back!</h3>
                     
@@ -90,7 +96,7 @@ class Login extends React.Component {
                 
 
 
-                
+                </div>
             </div>
         )
     }

@@ -2,14 +2,14 @@ export const createServer = server =>(
     $.ajax({
         method: 'POST',
         url: '/api/servers',
-        data: {user}
+        data: {server}
     })
 );
 
 
-export const deleteServer = () =>{
+export const deleteServer = serverId =>{
     return $.ajax({
         method: 'DELETE',
-        url: '/api/servers'
+        url: `/api/servers/${serverId}`
     })
 }

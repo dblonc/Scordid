@@ -3,3 +3,27 @@
     background-color: #36393f;
     width: 100%;
 }
+
+.chat-input{
+    position: relative;
+    top: 825px;
+    flex-shrink: 0;
+    padding-left: 16px; 
+    padding-right: 16px;
+    margin-top: -8px;
+    z-index: 1;
+    width: 1252px;
+    line-height: 1.375rem;
+    background-color: #40444b;
+    outline: 0;
+    border: none;
+    border-radius: 3px;
+    height: 35px;
+    color: #dcddde;
+    
+}
+
+.chat-area{
+    padding-bottom: 11px;
+    padding-top: 11px;
+}

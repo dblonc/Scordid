@@ -50,32 +50,39 @@ class Signup extends React.Component {
     render(){
         return (
             <div className = "signup-container">
-                <form onSubmit = {this.handleSubmit} className="signup-form">
-                    <h3>Create an account</h3>
-                    <label>EMAIL   
-                    <br/>
+                <div className="su-background">
+                    <a href='/'><img className="splash-white-logo" src={scordidwhiteURL} /> </a>
+                    <img src={window.loginwpURL} />
+                    
+                <div className="signup-box">
+
+                    <form onSubmit = {this.handleSubmit} className="signup-form">
+                        <h3>Create an account</h3>
                         {this.renderErrors()}
-                        <input type="text" value={this.state.email} onChange={this.update('email')}/>
-                    </label>
-                    <br/>
-                    <label>USERNAME
-                    <br />
-                        <input type="text" value={this.state.username} onChange={this.update('username')} />
-                    </label>
-                    <br/>
-                    <label> PASSWORD
-                        <br/>
-                        <input type="password" value={this.state.password} onChange={this.update('password')}/>
-                    </label>
-                    <br/>
-                    <button type="submit" className="signup-submit" value={this.props.formType}>Continue</button>
-                    <br/>
-                    <Link to="/login">Already have an account?</Link>
-                </form>
+                        <label>EMAIL   
+                            <br/>
+                            {this.renderErrors()}
+                            <input className="su-email" type="text" value={this.state.email} onChange={this.update('email')}/>
+                        </label>
+                            <br/>
+                        <label>USERNAME
+                            <br />
+                                <input className="su-username" type="text" value={this.state.username} onChange={this.update('username')} />
+                        </label>
+                            <br/>
+                        <label> PASSWORD
+                            <br/>
+                                <input className="su-password" type="password" value={this.state.password} onChange={this.update('password')}/>
+                        </label>
+                            <br/>
+                        <button type="submit" className="signup-submit" value={this.props.formType}>Continue</button>
+                            <br/>
+                        <Link to="/login">Already have an account?</Link>
+                    </form>
 
-                
+            </div>
 
-                
+                </div>
             </div>
         )
     }

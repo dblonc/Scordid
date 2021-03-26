@@ -1,8 +1,14 @@
 .whole-splash{
-    background-color: rgb(70, 55, 167);
+    display: flex;
+}
+.top-quad{
+    background-image: linear-gradient(0deg,#7196ff -.45%,#2a5ee8 71.18%) ;
+    width: 100%;
+    height: 625px;
+    overflow: hidden;
 }
 
-.top-part{
+.nav-bar{
     font-family: Helvetica,Arial,sans-serif;
     text-decoration: none;
     text-align: center;
@@ -82,6 +88,7 @@
     
         .blurb{
             margin-bottom: 8px;
+            z-index: 100;
             .headblurb{
                 font-size: 56px;
                 font-weight: 1000;
@@ -89,6 +96,7 @@
                 font-family:  'Catamaran',Arial,sans-serif;
                 display: block;
                 text-align: center;
+                color:white;
             }
 
             .blurb2{
@@ -99,6 +107,7 @@
                 font-size: 20px;
                 line-height: 32px;
                 flex-direction: column;
+                color: white;
             }
         }
 
@@ -161,5 +170,390 @@
             }
 
         }
+
+       
+
+
+
 }
+
+.bg{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 625px;
+    width: 100%;
+    z-index: 0;
+
+}
+
+.top-quad a{
+    z-index: 1000000;
+}
+
+nav{
+    position: absolute;
+    z-index: 4444444444;
+    left: 650px;
+}
+
+ .slice-one{
+    margin-left: -706px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+}
+ .slice-two{
+    margin-left: -1074px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+}
+ .light-slash{
+    margin-left: 46px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+}
+ .slice-four{
+    margin-top: 17px;
+    margin-left: 218px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+}
+ .castle-one{
+    margin-top: 80px;
+    margin-left: 215px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    animation: floating-castle-1;
+    animation-duration: 4800s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    animation-name: floating-castle-1;
+
+}
+ .castle-two{
+    margin-top: 80px;
+    margin-left: -1168px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    animation: floating-castle-1;
+    animation-duration: 2400s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    animation-name: floating-castle-1;
+
+}
+ .big-bottom{
+    margin-left: -767px;
+    display: block;
+    position: absolute;
+    top: auto;
+    left: 50%;
+    animation: floating-castle-1;
+    animation-duration: 2400s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    animation-name: floating-castle-1;
+
+}
+ .giant-moving{
+    margin-left: 86px;
+    display: block;
+    position: absolute;
+    top: auto;
+    left: 50%;
+    animation: floating-castle-1;
+    animation-duration: 2400s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    animation-name: floating-castle-1;
+
+}
+ .bigblue-moving{
+    margin-left: -2000px;
+    display: block;
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    animation: floating-castle-1;
+    animation-duration: 2400s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    animation-name: floating-castle-1;
+
+}
+ .bigblue-moving2{
+    margin-left: 631px;
+    display: block;
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    animation: floating-castle-1;
+    animation-duration: 2400s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    animation-name: floating-castle-1;
+
+}
+ .medium-three{
+    margin-left: -166px;
+    display: block;
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    animation: floating-castle-1;
+    animation-duration: 1200s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    animation-name: floating-castle-1;
+
+}
+ .seethru-one{
+     margin-top: 68px;
+    margin-left: 856px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    animation: floating-castle-1;
+    animation-duration: 1200s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    animation-name: floating-castle-1;
+
+}
+ .purple-moving{
+     margin-top: 211px;
+    margin-left: 353px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    animation: floating-castle-1;
+    animation-duration: 2400s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    animation-name: floating-castle-1;
+
+}
+ .thin-moving{
+     margin-top: 268px;
+    margin-left: -1200px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    animation: floating-castle-1;
+    animation-duration: 960s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    animation-name: floating-castle-1;
+
+}
+ .dia-star{
+     margin-top: 114px;
+    margin-left: 182px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    animation: floating-castle-1;
+    animation-duration: 960s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    animation-name: floating-castle-1;
+
+}
+ .pirate-ship{
+     margin-top: 117px;
+    margin-left: -460px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    animation: floating-castle-1;
+    animation-duration: 1200s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    animation-name: floating-castle-1;
+
+}
+
+.purple-arch{
+    margin-bottom: 34px;
+    margin-left: -291px;
+    display: block;
+    position: absolute;
+    top: auto;
+    left: 50%;
+    animation: floating-castle-1;
+    animation-duration: 1200s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    animation-name: floating-castle-1;
+}
+.whispy-clouds{
+    margin-bottom: 34px;
+    margin-left: -291px;
+    display: block;
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    animation: floating-castle-1;
+    animation-duration: 1200s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    animation-name: floating-castle-1;
+}
+.balloon-fight{
+    margin-bottom: -200px;
+    margin-left: -200px;
+    display: block;
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    animation: balloon-guy;
+    animation-duration: 100s;
+    animation-timing-function: linear;
+    animation-delay: 10s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    animation-name: balloon-guy;
+}
+.city-bg{
+    margin-left: -506px;
+    display: block;
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 50%;
+}
+.froggy-homie{
+    margin-left: -1300px;
+    height: auto;
+    display: block;
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    transform: none;
+    z-index: 1;
+}
+.swag-guys{
+    margin-left: 368px;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+}
+
+
+@keyframes floating-castle-1{ 
+    0%{
+   transform: translateX(0);
+    }
+    100%{
+        transform: translateX(8000px);
+    }
+}
+
+@keyframes balloon-guy{
+    0%{
+    transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-2000px);
+    }
+}
+
+.midsection{
+    background-color: white;
+}
+
+.splash-white-logo{
+    position: absolute;
+    left: 10px;
+  
+    cursor: pointer;
+    z-index: 10000000000;
+}
+
+
+
+
+
 

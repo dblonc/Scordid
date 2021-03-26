@@ -1,6 +1,6 @@
 import * as APIUtil from '../util/server_api_util';
 
-export const RECEIVE_CURRENT_SERVER = 'RECEIVE_CURRENT_SERVER'
+export const RECEIVE_CURRENT_SERVER = 'RECEIVE_CURRENT_SERVER';
 export const CREATE_SERVER = 'CREATE_SERVER';
 export const DELETE_SERVER = 'DELETE_SERVER';
 export const RECEIVE_SERVER_ERRORS = 'RECEIVE_SERVER_ERRORS';
@@ -10,8 +10,9 @@ export const createNewServer = server => ({
     server
 });
 
-export const deleteCurrentServer = () =>({
+export const deleteCurrentServer = (server) =>({
     type: DELETE_SERVER,
+    server
 });
 
 export const receiveCurrentServer = currentServer => ({
@@ -32,8 +33,8 @@ export const createServer = server => dispatch =>(
     )) 
 );
 
-export const deleteCurrentServer = () => dispatch =>(
-    APIUtil.deleteServer().then(server =>(
+export const deleteServer = serverId => dispatch =>(
+    APIUtil.deleteServer(serverId).then(server =>(
         dispatch(deleteCurrentServer(server))
     ))
 );

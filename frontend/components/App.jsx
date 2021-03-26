@@ -40,11 +40,6 @@ class App extends React.Component{
     render(){
         return(
     <div>
-       <header>
-            <Link to="/" className="header-link"> SCORDID </Link>
-       </header>
-
-
         <Switch>
         <AuthRoute exact path="/login" component={login} />
         <AuthRoute exact path="/signup" component={signup} />

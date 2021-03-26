@@ -14,9 +14,14 @@ class MembersSidebar extends React.Component {
     render() {
         return (
             <div className="member-sidebar-nav">
-                <span className="member-listing"># member no 1</span>
-                <br/>
-                <span className="member-listing"># member no 2</span>
+                <h2 className="mod-title">Mod - 1</h2>
+                <div className = "member-name">
+                    <span className="member-listing"># member no 1</span>
+                </div>
+               <h2 className="group-title">Online - 1</h2>
+                <div className="member-name">
+                    <span className="member-listing"># member no 2</span>
+                </div>
             </div>
         )
     }
