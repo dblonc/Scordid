@@ -85,7 +85,11 @@
 .splash-midsection{
     display: grid;
     padding: 120px 40px;
-    
+    box-sizing:border-box;
+    // grid-template-columns: repeat(12, 1fr);
+    gap: 0 20px;
+    width: 100%;
+
         .blurb{
             margin-bottom: 8px;
             z-index: 100;

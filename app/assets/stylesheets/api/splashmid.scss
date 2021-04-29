@@ -1,0 +1,234 @@
+.invite-only{
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 120%;
+    text-align: center;
+    display: block;
+    font-family: 'Catamaran', Arial, Helvetica, sans-serif;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.invite-blurb{
+    display:flex;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0 20px;
+
+}
+.collab-p{
+    display: block;
+}
+.collab-text{
+    display: flex;
+    font-size: 20px;
+    line-height: 32px;
+    margin-top: 24px;
+}
+
+.inv-description{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-column: 9/span 4;
+    -webkit-box-ordinal-group: 3;
+    order: 2;
+}
+
+.grey-wave{
+    width: 100%;
+}
+
+.hangout-section{
+    background-color: #f6f6f6;
+}
+
+.hangout-grid{
+    padding-top: 120px;
+    padding-bottom: 120px;
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(var(12),1fr);
+    gap: 0 20px;
+    padding: 0 var(40px)
+}
+
+.hangout-text{
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 120%;
+    display: block;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.hangout-blurb{
+    margin-top: 24px;
+    font-size: 20px;
+    line-height: 32px;
+}
+
+.voice-connected{
+    grid-column: 6/span 7;
+    display: flex;
+    -webkit-box-ordinal-group: 3;
+    order: 2;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.grey-wave-2{
+    background-color: #f6f6f6 ;
+}
+.grey-wave-bot{
+    width: 100%;
+}
+
+.fandom-grid{
+    padding-top: 120px;
+    padding-bottom: 120px;
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(var(12),1fr);
+    gap: 0 20px;
+    padding: 0 var(40px)
+}
+
+.fandom-desc{
+    grid-column: 9/span 4;
+    -webkit-box-ordinal-group: 3;
+    order: 2;
+}
+
+.fandom-text{
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 120%;
+    display: block;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.fandom-blurb{
+    margin-top: 24px;
+    font-size: 20px;
+    line-height: 32px;
+}
+
+.hangout-list{
+    grid-column: span 7;
+    display: flex;
+    -webkit-box-ordinal-group: 2;
+    order: 1;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.stayingclose-section{
+    background-color: #f6f6f6;
+}
+.staying-grid{
+    padding-top: 120px;
+    padding-bottom: 80px;
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(var(12),1fr);
+    gap: 0 20px;
+    padding: 0 var(40px)
+}
+
+.staying-desc{
+    grid-column: 2/span 10;
+    text-align: center;
+}
+
+.staying-text{
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 120%;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.staying-blurb{
+    margin-top: 24px;
+    font-size: 20px;
+    line-height: 32px;
+    display: block;
+}
+
+.just-chillin{
+    grid-column: span var(12);
+    width: 75%;
+    object-fit: cover;
+    margin-top: 16px;
+    justify-content: center;
+}
+
+.sparkles-section{
+    background-color: #f6f6f6;
+
+}
+
+.sparkles-container{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.sparkles-grid{
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.ready{
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 120%;
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.button-bottom{
+    background-color: #7289da;
+    color: white;
+    padding: 18px 32px;
+    text-decoration: none;
+    font-size: 19px;
+    font-family: 'Catamaran',Arial,sans-serif;;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 40px;
+    cursor: pointer;
+    border:none;
+}
+
+.button-bottom:hover{
+    transition-property: background-color,box-shadow;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+    box-shadow: 0 8px 15px grey;
+    background-color: #8ea1e1;
+
+}
