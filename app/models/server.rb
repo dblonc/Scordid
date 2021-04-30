@@ -6,7 +6,8 @@ validates :private_server, inclusion: {in:[true, false]}
 belongs_to :owner,
 class_name: :User
 
-
+has_many :channels,
+class_name: :Channel
 
 
 end
