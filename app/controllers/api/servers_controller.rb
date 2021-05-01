@@ -12,6 +12,19 @@ class Api::ServersController < ApplicationController
         end
     end
 
+    def index 
+        @servers = Server.all
+        render :index
+    end
+
+    def show 
+        @server = Server.find(params[:id])
+        
+        if @server
+         render :show
+        end
+    end
+
 
     def update
         @server =Server.find(params[:id])
