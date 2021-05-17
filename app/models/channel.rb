@@ -17,6 +17,10 @@ class Channel<ApplicationRecord
     foreign_key: :hostserver_id,
     class_name: :Server
 
+    has_many :comments,
+    foreign_key: :channel_id,
+    class_name: :Comment
+
 
 
 

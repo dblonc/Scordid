@@ -35,6 +35,7 @@ class Api::ServersController < ApplicationController
             else
                 render json: ["Please check your server listing"], status: 404
             end
+        else
             render json: ["You are not the server owner!"], status: 404
         end
 

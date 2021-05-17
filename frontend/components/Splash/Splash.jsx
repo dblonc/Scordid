@@ -45,9 +45,13 @@ class Splash extends React.Component{
                         
                             <div className= "blurb">
                                 
-                                    <h1 className="headblurb">Your place to talk</h1>
+                                <h1 className="headblurb">IMAGINE A PLACE...</h1>
                                     <div className = 'blurb2'>
-                                        Whether you’re part of a school club, gaming group, worldwide art community, or just a handful of friends that want to spend time together, Scordid makes it easy to talk every day and hang out more often.
+                                        ...where you can belong to a school club, a gaming group, or a worldwide art community. 
+                                        <br/>
+                                        Where just you and handful of friends can spend time together. A place that makes it easy to 
+                                        <br />
+                                        talk every day and hang out more often.
                                     </div>
                             </div>
                             <div className="button-div">
@@ -56,29 +60,13 @@ class Splash extends React.Component{
                             </div>
                             
                         </div>
+
+
                         <div className="bg">
-                            <img className="slice-one" src={window.sliceoneURL} />
-                            <img className="slice-two" src={window.slicetwoURL} />
-                            <img className="light-slash" src={window.lightslashURL} />
-                            <img className="slice-four" src={window.slicefourURL} />
-                            <img className="castle-one" src={window.castleoneURL} />
-                            <img className="castle-two" src={window.castletwoURL} />
-                            <img className="big-bottom" src={window.bigmovingbottomURL} />
-                            <img className="giant-moving" src={window.giantmovingURL} />
-                            <img className="bigblue-moving" src={window.bigbluemovingURL} />
-                            <img className="bigblue-moving2" src={window.bigbluemoving2URL} />
-                            <img className="medium-three" src={window.mediumthreeURL} />
-                            <img className="seethru-one" src={window.seethruoneURL} />
-                            <img className="purple-moving" src={window.purplemovingURL} />
-                            <img className="thin-moving" src={window.thinmovinglinesURL} />
-                            <img className="dia-star" src={window.diastarURL} />
-                            <img className="pirate-ship" src={window.priateshipURL} />
-                            <img className="purple-arch" src={window.purplearchURL} />
-                            <img className="whispy-clouds" src={window.whispycloudsURL} />
-                            <img className="balloon-fight" src={window.balloonfightURL} />
-                            <img className="city-bg" src={window.citybgURL} />
-                            <img className="froggy-homie" src={window.froggyhomieURL} />
-                            <img className="swag-guys" src={window.swagguysURL} />
+                            <img className="new-clouds" src={window.newcloudsURL} />
+
+                            <img className="new-left" src={window.newleftURL} />
+                            <img className="new-right" src={window.newrightURL} />
                         </div>
                     
                 
@@ -91,65 +79,97 @@ class Splash extends React.Component{
 
                 <div className="midsection">
                     <div className="invite-blurb">
-                        <img className="study-group" src={window.studygroupURL} />
+                        <img className="study-group" src={window.newstudygroupURL} />
                         <div className="inv-description">
-                            <div>
-                                <h1 className="invite-only">An invite-only place with plenty of room to talk</h1>
-                            </div>
-                            <div className="collab-p">
+                            <div className="inv-text">
+                                <h2 className="invite-only">
+                                    Create an invite-
+                                <br />
+                                only place where 
+                                <br />
+                                you belong</h2>
+                            
                                 <p className="collab-text">
                                     Scordid servers are organized into topic-
+                                     <br />
                                     based channels where you can collaborate, 
+                                     <br />
                                     share, and just talk about your day without 
+                                     <br />
                                     clogging up a group chat.
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div className="hangout-section">
-                    <div className="grey-wave-1">
-                        <img className="grey-wave" src={window.greywaveURL} />
-                    </div>
-                    <div className="hangout-grid">                   
+                    <div className="hangout-grid">   
+                        <img className="voice-connected" src={window.newvoiceconnectedURL} />
+
                         <div className="hangout-desc">
-                            <div>
+
+                            <div className="hang-words">
                                 <h2 className="hangout-text">
-                                    Where hanging out is easy
+                                    Where hanging out 
+                                    <br />
+                                    is easy
                                 </h2>
+                                
+                                <p className="hangout-blurb">
+                                    Grab a seat in a voice channel when you’re 
+                                    <br />
+                                    free. Friends in your server can see you’re 
+                                    <br />
+                                    around and instantly pop in to talk without 
+                                    <br />
+                                    having to call.
+                                </p>
                             </div>
-                            <div className="hangout-blurb">
-                                Grab a seat in a voice channel when you’re free. Friends in your server can see you’re around and instantly pop in to talk without having to call.
-                            </div>
+
                         </div>
 
+                        
 
-                        <img className="voice-connected" src={window.voiceconnectedURL} />
                     </div>
 
                 
                 </div>
+
+
                 <div className="fandom-section">
-                    <img className="grey-wave-bot" src={window.greywavebotURL} />
 
                     <div className="fandom-grid">
-                        <img className="hangout-list" src={window.hangoutlistURL} />
+
+                        <img className="hangout-list" src={window.newfandomURL} />
+
                         <div className="fandom-desc">
-                            <div>
+
+                            <div className = "fandom-words">
                                 <h2 className="fandom-text">
-                                    From a few to a fandom
+                                    From a few to a 
+                                    <br />
+                                    fandom
                                 </h2>
                                 <p className="fandom-blurb">
-                                    Get a community of any size running with moderation tools and custom member access. Give members special powers, set up private channels, and more.
+                                    Get a community of any size running with moderation 
+                                    <br />
+                                    tools and custom member access. Give 
+                                    <br />
+                                    members special powers, set up private channels, 
+                                    <br />
+                                    and more.
                                 </p>
                             </div>
+
                         </div>
+
                     </div>
+
                 </div>
+
+
                 <div className="stayingclose-section">
-                    <div className="grey-wave-1">
-                        <img className="grey-wave" src={window.greywaveURL} />
-                    </div>
 
                     <div className="staying-grid">
                         <div className="staying-desc">
@@ -157,9 +177,10 @@ class Splash extends React.Component{
                                 Reliable tech for staying close
                             </h2>
                             <p className="staying-blurb">
-                                Low-latency voice and video feels like you’re in the same room. Wave hello over video, watch friends stream their games, or gather up and have a drawing session with screen share.
-                            </p>
-                            <img className="just-chillin" src={window.justchillinURL} />
+                                Low-latency voice and video feels like you’re in the same room. Wave hello over video, watch friends stream their 
+                            <br />
+                            games, or gather up and have a drawing session with screen share.                            </p>
+                            <img className="just-chillin" src={window.newjustchillinURL} />
 
                         </div>
                     </div>
@@ -176,6 +197,19 @@ class Splash extends React.Component{
                         <Link to="/login"> <button className="button-bottom">Open Scordid in your browser</button></Link>
 
                    </div>
+                </div>
+
+                <div className="footer">
+                    <div className="footer-grid">
+                        <h4> Your place to talk </h4>
+                        <div>
+                            <a href="https://github.com/dblonc">Github</a>
+                        </div>
+                        <div>
+                            <a href="https://www.linkedin.com/in/danielbloncourt/">LinkedIn</a>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>

@@ -12,17 +12,21 @@
 #
 class User < ApplicationRecord
     #FIGVVVAAPER
-validates :username, :email, :password_digest, :session_token, presence: true
-validates :username, :email, uniqueness:true
-validates :password, length: {minimum: 6, allow_nil: true}
-validates :username, length: {minimum: 4}
+    validates :username, :email, :password_digest, :session_token, presence: true
+    validates :username, :email, uniqueness:true
+    validates :password, length: {minimum: 6, allow_nil: true}
+    validates :username, length: {minimum: 4}
 
-attr_reader :password 
-after_initialize :ensure_session_token
+    attr_reader :password 
+    after_initialize :ensure_session_token
 
-has_many :ownedservers,
-foreign_key: :owner_id,
-class_name: :Server
+    has_many :ownedservers,
+    foreign_key: :owner_id,
+    class_name: :Server
+
+    has_many :comments,
+    foreign_key: :user_id,
+    class_name: :Comment
 
 
 

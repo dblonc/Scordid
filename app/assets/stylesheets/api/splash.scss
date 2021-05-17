@@ -1,6 +1,7 @@
 .whole-splash{
     display: flex;
 }
+
 .top-quad{
     background-image: linear-gradient(0deg,#7196ff -.45%,#2a5ee8 71.18%) ;
     width: 100%;
@@ -9,7 +10,7 @@
 }
 
 .nav-bar{
-    font-family: Helvetica,Arial,sans-serif;
+    font-family: 'Lato',Arial,sans-serif;
     text-decoration: none;
     text-align: center;
     line-height: 140%;
@@ -37,7 +38,7 @@
     align-items: center;
     text-decoration: none;
     padding: 7px 16px;
-    font-family: sans-serif;
+    font-family: 'Lato',sans-serif;
     border:none;
     text-decoration: none;
 
@@ -97,7 +98,7 @@
                 font-size: 56px;
                 font-weight: 1000;
                 line-height: 120%;
-                font-family:  'Catamaran',Arial,sans-serif;
+                font-family:  'Lato',Arial,sans-serif;
                 display: block;
                 text-align: center;
                 color:white;
@@ -106,7 +107,7 @@
             .blurb2{
                 display: block;
                 text-align: center;
-                font-family: 'Catamaran',Arial,sans-serif;;
+                font-family: 'Lato',Arial,sans-serif;;
                 margin: 40px;
                 font-size: 20px;
                 line-height: 32px;
@@ -128,7 +129,7 @@
                 margin-top: 24px;
                 text-decoration: none;
                 font-size: 19px;
-                font-family: 'Catamaran',Arial,sans-serif;;
+                font-family: 'Lato',Arial,sans-serif;;
                 display: flex;
                 justify-content: space-between;
                 border-radius: 40px;
@@ -154,7 +155,7 @@
                 padding: 18px 32px;
                 text-decoration: none;
                 font-size: 19px;
-                font-family: Helvetica,Arial,sans-serif;;
+                font-family: Lato,Arial,sans-serif;;
                 display: flex;
                 justify-content: space-between;
                 border-radius: 40px;
@@ -188,6 +189,7 @@
     height: 625px;
     width: 100%;
     z-index: 0;
+    overflow: hidden;
 
 }
 
@@ -201,351 +203,32 @@ nav{
     left: 650px;
 }
 
- .slice-one{
-    margin-left: -706px;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 50%;
-}
- .slice-two{
-    margin-left: -1074px;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 50%;
-}
- .light-slash{
-    margin-left: 46px;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 50%;
-}
- .slice-four{
-    margin-top: 17px;
-    margin-left: 218px;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 50%;
-}
- .castle-one{
-    margin-top: 80px;
-    margin-left: 215px;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    animation: floating-castle-1;
-    animation-duration: 4800s;
-    animation-timing-function: linear;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    animation-fill-mode: forwards;
-    animation-play-state: running;
-    animation-name: floating-castle-1;
-
-}
- .castle-two{
-    margin-top: 80px;
-    margin-left: -1168px;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    animation: floating-castle-1;
-    animation-duration: 2400s;
-    animation-timing-function: linear;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    animation-fill-mode: forwards;
-    animation-play-state: running;
-    animation-name: floating-castle-1;
-
-}
- .big-bottom{
-    margin-left: -767px;
-    display: block;
-    position: absolute;
-    top: auto;
-    left: 50%;
-    animation: floating-castle-1;
-    animation-duration: 2400s;
-    animation-timing-function: linear;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    animation-fill-mode: forwards;
-    animation-play-state: running;
-    animation-name: floating-castle-1;
-
-}
- .giant-moving{
-    margin-left: 86px;
-    display: block;
-    position: absolute;
-    top: auto;
-    left: 50%;
-    animation: floating-castle-1;
-    animation-duration: 2400s;
-    animation-timing-function: linear;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    animation-fill-mode: forwards;
-    animation-play-state: running;
-    animation-name: floating-castle-1;
-
-}
- .bigblue-moving{
-    margin-left: -2000px;
-    display: block;
-    position: absolute;
-    top: auto;
-    bottom: 0;
-    left: 50%;
-    animation: floating-castle-1;
-    animation-duration: 2400s;
-    animation-timing-function: linear;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    animation-fill-mode: forwards;
-    animation-play-state: running;
-    animation-name: floating-castle-1;
-
-}
- .bigblue-moving2{
-    margin-left: 631px;
-    display: block;
-    position: absolute;
-    top: auto;
-    bottom: 0;
-    left: 50%;
-    animation: floating-castle-1;
-    animation-duration: 2400s;
-    animation-timing-function: linear;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    animation-fill-mode: forwards;
-    animation-play-state: running;
-    animation-name: floating-castle-1;
-
-}
- .medium-three{
-    margin-left: -166px;
-    display: block;
-    position: absolute;
-    top: auto;
-    bottom: 0;
-    left: 50%;
-    animation: floating-castle-1;
-    animation-duration: 1200s;
-    animation-timing-function: linear;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    animation-fill-mode: forwards;
-    animation-play-state: running;
-    animation-name: floating-castle-1;
-
-}
- .seethru-one{
-     margin-top: 68px;
-    margin-left: 856px;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    animation: floating-castle-1;
-    animation-duration: 1200s;
-    animation-timing-function: linear;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    animation-fill-mode: forwards;
-    animation-play-state: running;
-    animation-name: floating-castle-1;
-
-}
- .purple-moving{
-     margin-top: 211px;
-    margin-left: 353px;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    animation: floating-castle-1;
-    animation-duration: 2400s;
-    animation-timing-function: linear;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    animation-fill-mode: forwards;
-    animation-play-state: running;
-    animation-name: floating-castle-1;
-
-}
- .thin-moving{
-     margin-top: 268px;
-    margin-left: -1200px;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    animation: floating-castle-1;
-    animation-duration: 960s;
-    animation-timing-function: linear;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    animation-fill-mode: forwards;
-    animation-play-state: running;
-    animation-name: floating-castle-1;
-
-}
- .dia-star{
-     margin-top: 114px;
-    margin-left: 182px;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    animation: floating-castle-1;
-    animation-duration: 960s;
-    animation-timing-function: linear;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    animation-fill-mode: forwards;
-    animation-play-state: running;
-    animation-name: floating-castle-1;
-
-}
- .pirate-ship{
-     margin-top: 117px;
-    margin-left: -460px;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    animation: floating-castle-1;
-    animation-duration: 1200s;
-    animation-timing-function: linear;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    animation-fill-mode: forwards;
-    animation-play-state: running;
-    animation-name: floating-castle-1;
-
-}
-
-.purple-arch{
-    margin-bottom: 34px;
-    margin-left: -291px;
-    display: block;
-    position: absolute;
-    top: auto;
-    left: 50%;
-    animation: floating-castle-1;
-    animation-duration: 1200s;
-    animation-timing-function: linear;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    animation-fill-mode: forwards;
-    animation-play-state: running;
-    animation-name: floating-castle-1;
-}
-.whispy-clouds{
-    margin-bottom: 34px;
-    margin-left: -291px;
-    display: block;
-    position: absolute;
-    top: auto;
-    bottom: 0;
-    left: 50%;
-    animation: floating-castle-1;
-    animation-duration: 1200s;
-    animation-timing-function: linear;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    animation-fill-mode: forwards;
-    animation-play-state: running;
-    animation-name: floating-castle-1;
-}
-.balloon-fight{
-    margin-bottom: -200px;
-    margin-left: -200px;
-    display: block;
-    position: absolute;
-    top: auto;
-    bottom: 0;
-    left: 50%;
-    animation: balloon-guy;
-    animation-duration: 100s;
-    animation-timing-function: linear;
-    animation-delay: 10s;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    animation-fill-mode: forwards;
-    animation-play-state: running;
-    animation-name: balloon-guy;
-}
-.city-bg{
-    margin-left: -506px;
-    display: block;
-    position: absolute;
-    top: auto;
-    bottom: 0;
-    left: 50%;
-}
-.froggy-homie{
-    margin-left: -1300px;
-    height: auto;
-    display: block;
-    position: absolute;
-    top: auto;
-    bottom: 0;
-    left: 50%;
-    transform: none;
-    z-index: 1;
-}
-.swag-guys{
-    margin-left: 368px;
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-}
-
-
-@keyframes floating-castle-1{ 
-    0%{
-   transform: translateX(0);
-    }
-    100%{
-        transform: translateX(8000px);
-    }
-}
-
-@keyframes balloon-guy{
-    0%{
-    transform: translateY(0);
-    }
-    100%{
-        transform: translateY(-2000px);
-    }
-}
 
 .midsection{
     background-color: white;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    flex-direction: column;
+   
+}
+
+
+
+.inv-text>h2{
+    text-align: left;
+}
+
+
+.study-group{
+    max-width: 678px;
+    max-height: 440px;
+    grid-column: span var(4);
+    width: 100%;
+    object-fit: cover;
+    margin: 24px;
 }
 
 .splash-white-logo{
@@ -556,7 +239,31 @@ nav{
     z-index: 10000000000;
 }
 
+.new-clouds{
+    margin-left: -1280px;
+    top:auto;
+    bottom: 0;
+    display: block;
+    position: absolute;
+    left: 50%;
+}
 
+.new-right{
+    display: block;
+    bottom: 0;
+    left: 50%;
+    margin-left: 70px;
+    position: absolute;
+}
+
+.new-left{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    display: block;
+    height: auto;
+    margin-left: -1030px;
+}
 
 
 
