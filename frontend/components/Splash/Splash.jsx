@@ -32,10 +32,11 @@ class Splash extends React.Component{
                                 <a href="/">Safety</a>
                                 <a href="/">Support</a>
                                 
-                                    {!currentUser ? (
-                                        <Link to="/login"> <button className="login_button">Login</button></Link>
-                                    )  : (<button className='logout_button' onClick={logout}>Log Out</button>)}
-                            
+                                    
+                                        {!currentUser ? (
+                                            <Link to="/login"> <button className="login_button">Login</button></Link>
+                                        )  : (<button className='logout_button' onClick={logout}>Log Out</button>)}
+                                    
                                 </div>    
                             </nav>
                         </div>
@@ -187,15 +188,15 @@ class Splash extends React.Component{
                 </div>
                 <div className="sparkles-section">
                    <div className = "sparkles-grid">
-                       <div className="sparkles-container">
-                            <img className="sparkles" src={window.sparklesURL7} />
+                       <div className="sparks-div">
+                            <img className="sparkles" src={window.sparklesURL} />
                         </div>
-                        <h4 className="ready">
-                            Ready to start your journey?
+                        
+                            <h4 className="ready">
+                                Ready to start your journey?
 
-                        </h4>
-                        <Link to="/login"> <button className="button-bottom">Open Scordid in your browser</button></Link>
-
+                            </h4>
+                            <Link to="/login"> <button className="button-bottom">Open Scordid in your browser</button></Link>
                    </div>
                 </div>
 

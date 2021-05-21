@@ -8,8 +8,9 @@
 }
 
 .login-form{
-    
+    justify-content: left;
     width: 100%;
+    
 }
 
 .background>img{
@@ -36,7 +37,7 @@
 
 .login-submit{
     color: white;
-    background-color: #8972da;
+    background-color: #7289da;
     font-size: 16px;
     line-height: 24px;
     margin-bottom: 8px;
@@ -46,14 +47,15 @@
     padding: 2px 16px;
     outline: none;
     border: none;
+    height: 44px;
 }
 .login-submit:hover{
     transition: background-color .17s ease,color;
-    background-color: #7763c0;
+    background-color: #5c6fb1;
 }
 .demo-button:hover{
     transition: background-color .17s ease,color;
-    background-color: #7763c0;
+    background-color: #5c6fb1;
 }
 
 .login-form>h3{
@@ -63,11 +65,38 @@
     margin-bottom: 8px;
     font-size: 24px;
     line-height: 30px;
-    text-align: center;
+}
+
+.username-input{
+    margin-bottom: 20px;
+    outline: 0;
+}
+.password-input{
+    margin-bottom: 20px;
+    outline: 0;
+}
+
+.excited-text{
+    color: #b9bbbe;
+    font-size: 16px;
+    line-height: 20px;
+    outline: 0;
+
+}
+
+.username-input>h5{
+    margin-bottom: 8px;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.password-input>h5{
+    margin-bottom: 8px;
+    font-size: 12px;
+    line-height: 16px;
 }
 
 .login-form>span{
-    color: #b9bbbe;
     font-family: 'Catamaran',Arial,sans-serif;
     font-weight: inherit;
     margin-bottom: 8px;
@@ -78,7 +107,7 @@
 }
 .demo-button{
     color: white;
-    background-color: #8972da;
+    background-color: #7289da;
     font-size: 16px;
     line-height: 24px;
     margin-bottom: 8px;
@@ -103,6 +132,7 @@
     background-color: #303339;
     border: none;
     padding: 10px;
+    height: 40px;
     line-height: 24px;
     font-size: 16px;
     border-radius: 5px;
@@ -110,6 +140,7 @@
     width: 100%;
     border: solid 2px #202225;
     box-sizing: border-box;
+    transition: border-color .2s ease-in-out;
    
 }
 
@@ -124,6 +155,7 @@
     width: 100%;
     border: solid 2px #202225;
     box-sizing: border-box;
+    height: 40px;
    
 }
 
@@ -177,5 +209,12 @@
 
 .form-section{
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
     flex-direction: column;
+    -webkit-box-flex: 1;
+    -webkit-box-align: start;
+    align-items: flex-start;
+    width: 414px;
+    height: 342px;
 }

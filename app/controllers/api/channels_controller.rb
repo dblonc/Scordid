@@ -12,7 +12,7 @@ class Api::ChannelsController < ApplicationController
     end
 
     def update
-        @channel - Channel.find(params[:id])
+        @channel = Channel.find(params[:id])
 
         if @channel.hostserver_id == @server.id
             if @channel.update(channel_params)

@@ -15,6 +15,9 @@
     text-align: center;
     line-height: 140%;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
     a{
         margin: 10px;
         padding: 10px;
@@ -42,8 +45,8 @@
     border:none;
     text-decoration: none;
 
-
 }
+
 
 .logout_button{
     background-color: white;

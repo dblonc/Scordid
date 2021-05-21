@@ -28,6 +28,10 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: :Comment
 
+    has_many :memberships,
+    foreign_key: :user_id,
+    class_name: :Membership
+
 
 
 

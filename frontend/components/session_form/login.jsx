@@ -57,42 +57,48 @@ class Login extends React.Component {
         return (
             <div className = "login-container">
                 
-             <div className="background">
+                <div className="background">
                     <a href='/'><img className="splash-white-logo" src={scordidwhiteURL} /> </a>
-                        <img src={window.loginwpURL} />
+                    <img src={window.loginwpURL} />
             
-                <div className = "login-box">
+                    <div className = "login-box">
                    
-               <div className="form-section">
+                        <div className="form-section">
                         
-                <form onSubmit = {this.handleSubmit} className="login-form">
-                    <h3>Welcome Back!</h3>
-                    
-                    <span>We're so excited to see you again!</span>
-                    <br/>
-                        {this.renderErrors()}
-                    <label> USERNAME OR EMAIL   
-                         <br />
-                        <input className = "email-box" type="text" value={this.state.username} onChange={this.update('username')}/>
-                    </label>
-                    <br/>
-                    <label> PASSWORD
-                        <br/>
-                        <input className = "password-box" type="password" value={this.state.password} onChange={this.update('password')}/>
-                    </label>
-                    <br />
-                    <button type="submit" className="login-submit" value={this.props.formType} > Login </button>
-                    <p>Need an account? <Link to="/signup">Register</Link> </p>
-                   
+                            <form onSubmit = {this.handleSubmit} className="login-form">
+                                
+                                <h3>Welcome Back!</h3>
+
+                                <div className="excited-text">
+                                    We're so excited to see you again!
+                                    <br/>
+                                    {this.renderErrors()}
+                                </div>
+                                <div className = "username-input">
+                                    <br/>
+                                <h5> USERNAME OR EMAIL</h5>
+                                    <input className = "email-box" type="text" value={this.state.username} onChange={this.update('username')}/>
+                                </div>
+                                
+                                <div className="password-input">
+                                <h5> PASSWORD </h5>
+                                    <input className = "password-box" type="password" value={this.state.password} onChange={this.update('password')}/>
+                                
+                                </div>
+                            
+                                <button type="submit" className="login-submit" value={this.props.formType} > Login </button>
+                                <p>Need an account? <Link to="/signup">Register</Link> </p>
                         
-                </form>
-                    </div>
+                                
+                            </form>
+                        </div>
+
                     <div className="right-side-box">
                         <h3>Log in with Demo Button</h3>
                         <p>Press this button to log in instantly.</p>
                         <button className="demo-button" onClick={this.handleDemoLogin}>Demo User</button>
                     </div>
-            </div>
+                </div>
                 
 
 

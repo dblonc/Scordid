@@ -32,7 +32,7 @@
 
 .signup-submit{
     color: white;
-    background-color: #8972da;
+    background-color: #7289da;
     font-size: 16px;
     line-height: 24px;
     margin-bottom: 8px;
@@ -43,11 +43,12 @@
     outline: none;
     border: none;
     box-sizing: border-box;
+    height: 44px;
 
 }
 .signup-submit:hover{
     transition: background-color .17s ease,color;
-    background-color: #7763c0;
+    background-color: #5c6fb1;
 }
 
 .signup-form>h3{
