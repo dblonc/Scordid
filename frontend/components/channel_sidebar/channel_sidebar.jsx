@@ -11,7 +11,7 @@ class ChannelSidebar extends React.Component {
 
     render() {
 
-        const {logout} = this.props;
+        
         return (
             <div className="channel-sidebar-nav">
                 <div className = "title-box">
