@@ -18,10 +18,11 @@ class Api::ServersController < ApplicationController
     end
 
     def show 
-        @server = Server.find(params[:id])
         
-        if @server
-         render :show
+        @servers = Server.where(owner_id: params[:id])
+        
+        if @servers
+         render "api/servers/show"
         end
     end
 

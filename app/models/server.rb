@@ -9,7 +9,7 @@
 #  updated_at     :datetime         not null
 #  owner_id       :integer          not null
 #  private_server :boolean          not null
-#
+#  include a profile image for server. 
 class Server<ApplicationRecord
     validates :servername, :description, :owner_id, presence: true
     validates :servername, :description, uniqueness: true
