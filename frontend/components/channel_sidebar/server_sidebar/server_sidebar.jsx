@@ -8,8 +8,13 @@ class ServerSideBar extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        
+        this.props.requestCurrentUserServers(this.props.user_id)
+    }
 
     render() {
+        
         return (
             <div className = "sidebarnav">
                 <a href="#/@me">
@@ -21,6 +26,7 @@ class ServerSideBar extends React.Component {
                     <div className="server-icon-1">
                     </div>
                 </a>
+                <button className="add_server_btn" onClick={this.props.createNewServer} >+</button>
             </div>
         )
     }

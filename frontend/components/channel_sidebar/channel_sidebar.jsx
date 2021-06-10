@@ -10,6 +10,8 @@ class ChannelSidebar extends React.Component {
 
 
     render() {
+
+        const {logout} = this.props;
         return (
             <div className="channel-sidebar-nav">
                 <div className = "title-box">
@@ -33,6 +35,7 @@ class ChannelSidebar extends React.Component {
                         <div className="nametag">Dannybee</div>
                         </div>
                         <div className="numbertag">#0320</div>
+                        <button onClick={this.props.logout} >Log Out</button>
                     </div>
                 </div>
             </div>
