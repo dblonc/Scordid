@@ -4,6 +4,7 @@ export const RECEIVE_CURRENT_SERVER = 'RECEIVE_CURRENT_SERVER';
 export const CREATE_SERVER = 'CREATE_SERVER';
 export const DELETE_SERVER = 'DELETE_SERVER';
 export const RECEIVE_SERVER_ERRORS = 'RECEIVE_SERVER_ERRORS';
+export const RECEIVE_CURRENT_USER_SERVERS = 'RECEIVE_CURRENT_USER_SERVERS';
 
 export const createNewServer = server => ({
     type: CREATE_SERVER,
@@ -14,6 +15,11 @@ export const deleteCurrentServer = (server) =>({
     type: DELETE_SERVER,
     server
 });
+
+export const receiveCurrentUserServers = (payload) => ({
+    type: RECEIVE_CURRENT_USER_SERVERS,
+    payload
+})
 
 export const receiveCurrentServer = currentServer => ({
     type: RECEIVE_CURRENT_SERVER,
@@ -38,4 +44,10 @@ export const deleteServer = serverId => dispatch =>(
         dispatch(deleteCurrentServer(server))
     ))
 );
+
+export const requestCurrentUserServers = serverId => dispatch => (
+    APIUtil.showServers(serverId).then(payload => (
+        dispatch(receiveCurrentUserServers(payload))
+    ))
+)
 

@@ -1,6 +1,7 @@
 import{
     DELETE_SERVER,
-    RECEIVE_CURRENT_SERVER
+    RECEIVE_CURRENT_SERVER,
+    RECEIVE_CURRENT_USER_SERVERS
 } from '../actions/server_actions';
 
 const _nullServer = Object.freeze({
@@ -14,6 +15,9 @@ const serverReducer = (oldState = {}, action) =>{
             return Object.assign({}, action.currentServer);
         case DELETE_SERVER:
             return _nullServer;
+        case RECEIVE_CURRENT_USER_SERVERS:
+            
+            return Object.assign({}, action.payload);
         default:
             return oldState;
     }
