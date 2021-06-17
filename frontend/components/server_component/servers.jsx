@@ -30,7 +30,7 @@ render() {
                     currentUserServers = {this.props.currentUserServers}/>
                     <ChannelSidebar/>
                     <Chatbox/>
-                    <NewServerModal/>
+                    
                     <MembersSidebar/>
                     
                 </div>
