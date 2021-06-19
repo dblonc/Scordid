@@ -13,7 +13,25 @@ import NewServerModal from '../channel_sidebar/server_sidebar/newServerModal'
 class Servers extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            show: false
+        };
+        this.hideModal = this.hideModal.bind(this);
+        this.showModal = this.showModal.bind(this);
+
+
+
     }
+
+    showModal(e) {
+        this.setState({ show: !this.state.show })
+    };
+
+    hideModal(e) {
+        this.setState({ show: false })
+    };
+
 
 
 
@@ -24,11 +42,16 @@ render() {
             <div className="main-window">
 
                 <div className = "server-window">
-                    
-                    <ServerSideBar  requestCurrentUserServers={this.props.requestCurrentUserServers}
-                    user_id={this.props.user_id}
-                    currentUserServers = {this.props.currentUserServers}/>
-                    <ChannelSidebar/>
+                    <NewServerModal show={this.state.show} hideModal={this.hideModal} />
+
+                    <ServerSideBar  
+                        requestCurrentUserServers={this.props.requestCurrentUserServers}
+                        user_id={this.props.user_id}
+                        currentUserServers = {this.props.currentUserServers}
+                        showModal={this.showModal}
+                        show = {this.state.show}
+                    />
+                    <ChannelSidebar />
                     <Chatbox/>
                     
                     <MembersSidebar/>
