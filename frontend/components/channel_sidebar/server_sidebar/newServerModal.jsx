@@ -23,16 +23,27 @@ class NewServerModal extends React.Component {
                 <div className="server-modal-wrapper">
                     <div className="modal-top">
                         <div className = "modal-top-text">
-                            <h3>Create a server</h3>
-                            <p>Your server is where you and your friends hang out. Make 
-                                <br />
-                                yours and start talking.
-                            </p>
-                            <button onClick={e => this.hideModal(e)}>
+                            <div className = "modal-top-create">
+                                <h3>Create a server</h3>
+                            </div>
+                            <div className = "modal-top-server">
+                                <p>Your server is where you and your friends hang out. Make 
+                                    <br />
+                                    yours and start talking.
+                                </p>
+                            </div>
+                            <div className="modal-create-buttons">
+                                <button className="my-own">Create my Own</button>
+                            </div>
+                            <button className = "modal-x" onClick={e => this.hideModal(e)}>
                             x
                             </button>
                         </div>
+                        
+                        
                     </div>
+
+                   
                 </div>
             </div>
         )
