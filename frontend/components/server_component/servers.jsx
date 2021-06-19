@@ -40,9 +40,9 @@ render() {
 
         return(
             <div className="main-window">
+                    <NewServerModal show={this.state.show} hideModal={this.hideModal} />
 
                 <div className = "server-window">
-                    <NewServerModal show={this.state.show} hideModal={this.hideModal} />
 
                     <ServerSideBar  
                         requestCurrentUserServers={this.props.requestCurrentUserServers}

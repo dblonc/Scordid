@@ -21,9 +21,13 @@ class NewServerModal extends React.Component {
         return(
             <div>
                 <div className="server-modal-wrapper">
-                    <div className="modal-content">
-                        <div className = "modal-text">
-                            Modal On;
+                    <div className="modal-top">
+                        <div className = "modal-top-text">
+                            <h3>Create a server</h3>
+                            <p>Your server is where you and your friends hang out. Make 
+                                <br />
+                                yours and start talking.
+                            </p>
                             <button onClick={e => this.hideModal(e)}>
                             x
                             </button>
