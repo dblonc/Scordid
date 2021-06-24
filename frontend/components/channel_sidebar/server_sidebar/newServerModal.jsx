@@ -36,6 +36,77 @@ class NewServerModal extends React.Component {
             </>
 
         )
+
+
+
+        const secondphase = (
+            <>
+                <div className="modal-top-create">
+                    <h3>Tell us more about your server</h3>
+                </div>
+                <div className="modal-top-server">
+                    <p>In order to help you with your setup, is your new server for
+                        <br />
+                        just a few friends or a larger community?
+                    </p>
+                </div>
+                <div className="modal-create-buttons">
+                    <button className="for-buttons">For me and my friends</button>
+                    <button className="for-buttons">For a club or community</button>
+                </div>
+
+                <div className="not-sure">
+                    <p>Not sure? You can skip this question for now.</p>
+                </div>
+                <div className="back-and-create">
+                    <button className="back-button">Back</button>
+                </div>                
+            </>
+        )
+
+        const thirdphase = (
+            <>
+                <div className="modal-top-create">
+                    <h3>Customize your server</h3>
+                </div>
+                <div className="modal-top-server">
+                    <p>Give your new server a personality with a name and an
+                        <br />
+                        icon. You can always change it later
+                    </p>
+                </div>
+                <div className="server-input">
+                   <form action="server-form">
+                        <div className = "photo-upload">
+
+                        </div>
+
+                        <div className = "server-textbox-section">
+                            <div className="server-input-title">
+                                <h5>SERVER NAME</h5>
+                            </div>
+
+                            <div className = "server-textbox">
+                                <input type="text" className="server-modal-textbox"/>
+                            </div>
+
+                            <div className = "community-guidelines">
+                                By creating a server, you agree to Scordid's Community Guidelines.
+                            </div>
+
+                            
+
+                        </div>
+                   </form>
+                    <div className="back-and-create">
+                        <div className="create-back-button">
+                        Back
+                        </div>
+                        <button className="server-create">Create</button>
+                    </div>
+                </div>
+            </>
+        )
         return(
             <div>
                 <div className = "modal-background" onClick = {this.hideModal}></div>
@@ -43,9 +114,9 @@ class NewServerModal extends React.Component {
                 <div className="server-modal-wrapper">
                     <div className="modal-top">
                         <div className="modal-top-text">
-                        {firstphase}
+                            {secondphase}
                             <button className = "modal-x" onClick={e => this.hideModal(e)}>
-                            x
+                            X
                             </button>
                         </div>
                         

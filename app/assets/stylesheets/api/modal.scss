@@ -9,7 +9,12 @@
     padding: 0;
     border: 0;
     outline: 0;
-   
+    border-radius: 5px;
+    background-color: blue;
+   left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
 }
 
 .modal-top{
@@ -29,9 +34,12 @@
     z-index: 10000;
     display: flex;
     justify-content: center;
+        border-radius: 5px;
+
 }
 
 .modal-top-text{
+    font-family: 'Catamaran',Arial,sans-serif;
     flex: 0 0 auto;
     padding: 24px 16px 0;
     -webkit-box-flex: 0;
@@ -57,6 +65,15 @@
     position: absolute;
     top: 12px;
     right: 12px;
+    color: #4f5660;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+}
+
+.modal-x:hover{
+    color: #2e3338;
+    cursor: pointer;
 }
 
 .modal-create-buttons{
@@ -86,4 +103,186 @@
     bottom: 0;
     right: 0;
     background-color: rgba($color: darkgrey, $alpha: 0.1);
+}
+
+.for-buttons{
+    width: 406px;
+    height: 64px;
+    border-radius: 8px;
+    border: 1px solid rgba(6,6,7,0.08);
+    background-color: white;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+    padding: 0;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+}
+
+.for-buttons:hover{
+    background-color: rgba(116,127,141,0.08);
+}
+
+.not-sure{
+    text-align: center;
+    margin-top: 18px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #4f5660;
+    background-color: white;
+    width: 408px;
+    height: 18px;
+    font-family: 'Catamaran',Arial,sans-serif;
+
+}
+
+.server-input{
+    padding-right: 8px;
+    margin: 16px 0;
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    position: relative;
+    padding-left: 16px;
+    box-sizing: border-box;
+    flex: 1 1 auto;
+    width: 416;
+}
+
+.back-button{
+  height: 38px;
+  margin-right: auto;
+  width: auto;
+  display: inline;
+  padding: 2px 4px;
+  background: transparent;
+  border: none;
+  font-size: 13px;
+}
+
+.back-button:hover{
+    cursor: pointer;
+}
+
+.photo-upload{
+    padding-top: 4px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    color: #4f5660;
+}
+
+.server-textbox-section{
+    margin-top: 24px;
+    outline: 0;
+    display: block;
+    
+}
+
+.server-input-title{
+    font-family: 'Catamaran',Arial,sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    -webkit-box-flex: 1;
+    flex: 1;
+    color: #6a7480;
+    margin-bottom: 8px;
+}
+
+.server-textbox{
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    outline: 0;
+    width: 408px;
+    height: 40px;
+}
+
+.server-modal-textbox{
+        font-family: 'Catamaran',Arial,sans-serif;
+        font-weight: 500;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 3px;
+        color: #2e3338;
+        background-color: rgba(79, 82, 94, 0.02);
+        border: 1px solid rgba(79, 82, 92, 0.3);
+        width: 408px;
+        height: 40px;
+}
+
+.community-guidelines{
+    margin-top: 8px;
+    padding-bottom: 4px;
+    font-size: 12px;
+    line-height: 16px;
+    color: #747f8d;
+}
+
+.back-and-create{
+    flex: 0 0 auto;
+    background-color: #f6f6f7;
+    border-radius: 0 0 5px 5px;
+    position: relative;
+    -webkit-box-flex: 0;
+    padding: 16px;
+    width: 408px;
+    height: 38px;
+    overflow-x: hidden;
+    -webkit-box-orient: horizontal;
+    flex-wrap: nowrap;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    display: flex;
+}
+
+.server-create{
+    color: #fff;
+    background-color: #7289da;
+    // width: auto;
+    height: 38px;
+    min-width: 96px;
+    position: relative;
+    min-height: 38px;
+    -webkit-box-align: center;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    // background: none;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 2px 16px;
+    border-radius: 3px;
+    text-align: center;
+    justify-content: center;
+}
+
+.create-back-button{
+    width: auto;
+    display: inline;
+    height: auto;
+    padding: 2px 4px;
+    background: transparent;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    border: 3px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.server-create:hover{
+    background-color: #5c6fb1;
+    cursor: pointer;
 }
