@@ -45,8 +45,8 @@ export const deleteServer = serverId => dispatch =>(
     ))
 );
 
-export const requestCurrentUserServers = serverId => dispatch => (
-    APIUtil.showServers(serverId).then(payload => (
+export const requestCurrentUserServers = () => dispatch => (
+    APIUtil.showServers().then(payload => (
         dispatch(receiveCurrentUserServers(payload))
     ))
 )

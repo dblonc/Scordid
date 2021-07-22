@@ -12,7 +12,7 @@
 #  include a profile image for server. 
 class Server<ApplicationRecord
     validates :servername, :description, :owner_id, presence: true
-    validates :servername, :description, uniqueness: true
+    validates :servername,  uniqueness: true
     validates :private_server, inclusion: {in:[true, false]}
 
     belongs_to :owner,

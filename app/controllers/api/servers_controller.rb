@@ -52,6 +52,6 @@ class Api::ServersController < ApplicationController
     private 
 
     def strong_params
-        params.require(:server).permit(:servername, :description, :private_server)
+        params.require(:server).permit(:servername, :description, :private_server, :owner_id)
     end
 end

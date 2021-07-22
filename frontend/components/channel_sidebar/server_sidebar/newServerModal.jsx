@@ -1,23 +1,68 @@
 import React from 'react';
 import { render } from 'react-dom';
+import {withRouter} from 'react-router-dom';
 
 class NewServerModal extends React.Component {
     constructor(props) {
         super(props);
         this.hideModal = this.hideModal.bind(this);
 
+        this.state ={
+            phasestate: 1,
+            servername: "",
+            description: "Insert Description Here",
+            owner_id: "",
+            private_server: false
+        }
+
+        this.modalbackward = this.modalbackward.bind(this);
+        this.modalforward = this.modalforward.bind(this);
+        this.handlechange = this.handlechange.bind(this);
+        this.serverCreation = this.serverCreation.bind(this);
     }
 
-   
+    // Modal Settings
+    modalforward(){
+        this.setState({
+            phasestate: this.state.phasestate + 1
+        })
+    };
+
+    modalbackward(){
+        this.setState({
+            phasestate: this.state.phasestate - 1
+        })
+    };
+
+    handlechange(e){
+        this.setState({
+            servername: e.target.value
+        })
+    }
 
     hideModal(e){
         this.props.hideModal && this.props.hideModal(e);
+    };
+
+    serverCreation(e){
+        e.preventDefault();
+        const server = Object.assign({}, this.state)
+        this.props.createServer(server);
+        if (this.serverCreation) {
+            this.props.history.push(`/${this.serverId}`)
+        }else{
+            console.log('server not created')
+        }
     }
 
-    render() {
+
+    render() { 
+        debugger
         if(!this.props.show){
             return null;
         }
+
+
 
         const firstphase = (
             <>
@@ -31,7 +76,7 @@ class NewServerModal extends React.Component {
                     </p>
                 </div>
                 <div className="modal-create-buttons">
-                    <button className="my-own">Create my Own</button>
+                    <button className="my-own" onClick={this.modalforward}>Create my Own</button>
                 </div>
             </>
 
@@ -51,15 +96,15 @@ class NewServerModal extends React.Component {
                     </p>
                 </div>
                 <div className="modal-create-buttons">
-                    <button className="for-buttons">For me and my friends</button>
-                    <button className="for-buttons">For a club or community</button>
+                    <button className="for-buttons" onClick={this.modalforward}>For me and my friends</button>
+                    <button className="for-buttons" onClick={this.modalforward}>For a club or community</button>
                 </div>
 
                 <div className="not-sure">
                     <p>Not sure? You can skip this question for now.</p>
                 </div>
                 <div className="back-and-create">
-                    <button className="back-button">Back</button>
+                    <button className="back-button" onClick={this.modalbackward}>Back</button>
                 </div>                
             </>
         )
@@ -76,7 +121,7 @@ class NewServerModal extends React.Component {
                     </p>
                 </div>
                 <div className="server-input">
-                   <form action="server-form">
+                   <form action="server-form" onSubmit={this.serverCreation}>
                         <div className = "photo-upload">
 
                         </div>
@@ -87,34 +132,48 @@ class NewServerModal extends React.Component {
                             </div>
 
                             <div className = "server-textbox">
-                                <input type="text" className="server-modal-textbox"/>
+                                <input type="text" className="server-modal-textbox" onChange={this.handlechange} value={this.state.servername}/>
                             </div>
 
                             <div className = "community-guidelines">
                                 By creating a server, you agree to Scordid's Community Guidelines.
                             </div>
 
+                    <div className="back-and-create">
+                        <div className="create-back-button" onClick={this.modalbackward}>
+                        Back
+                        </div>
+                        <button className="server-create" type='submit' >Create</button>
+                    </div>
                             
 
                         </div>
                    </form>
-                    <div className="back-and-create">
-                        <div className="create-back-button">
-                        Back
-                        </div>
-                        <button className="server-create">Create</button>
-                    </div>
                 </div>
             </>
         )
+
+       const modalswitch = () => {
+           
+            if (this.state.phasestate === 1) {
+                 return firstphase ;
+            } else if (this.state.phasestate === 2) {
+                 return secondphase ;
+            } else {
+                 return thirdphase ;
+            }
+        };
+
+        
         return(
-            <div>
+            <div className = "modal-spacer">
                 <div className = "modal-background" onClick = {this.hideModal}></div>
 
                 <div className="server-modal-wrapper">
                     <div className="modal-top">
                         <div className="modal-top-text">
-                            {secondphase}
+
+                            {modalswitch()}
                             <button className = "modal-x" onClick={e => this.hideModal(e)}>
                             X
                             </button>
@@ -134,4 +193,4 @@ class NewServerModal extends React.Component {
 
 
 
-export default NewServerModal;
+export default withRouter(NewServerModal);

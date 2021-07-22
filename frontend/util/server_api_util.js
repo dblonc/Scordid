@@ -14,7 +14,14 @@ export const deleteServer = serverId => {
     })
 }
 
-export const showServers = serverId =>{
+export const showServers = () =>{
+    return $.ajax({
+        method: 'GET',
+        url: `/api/servers/`
+    })
+}
+
+export const showServer = serverId =>{
     return $.ajax({
         method: 'GET',
         url: `/api/servers/${serverId}`

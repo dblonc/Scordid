@@ -5,7 +5,7 @@ import Chatbox from '../chat_box_component/chat_box';
 import MembersSidebar from '../members_sidebar/members_sidebar';
 import ServerSideBar from '../channel_sidebar/server_sidebar/server_sidebar'
 import NewServerModal from '../channel_sidebar/server_sidebar/newServerModal'
-
+import ServerModalContainer from '../channel_sidebar/server_sidebar/serverModalContainer';
 
 
 
@@ -15,10 +15,13 @@ class Servers extends React.Component {
         super(props);
 
         this.state = {
-            show: false
+            show: false,
+            phasestate: 1
         };
         this.hideModal = this.hideModal.bind(this);
         this.showModal = this.showModal.bind(this);
+        this.modalbackward = this.modalbackward.bind(this);
+        this.modalforward = this.modalforward.bind(this);
 
 
 
@@ -32,6 +35,18 @@ class Servers extends React.Component {
         this.setState({ show: false })
     };
 
+    modalforward() {
+        this.setState({
+            phasestate: phasestate + 1
+        })
+    };
+
+    modalbackward() {
+        this.setState({
+            phasestate: phasestate - 1
+        })
+    };
+
 
 
 
@@ -40,7 +55,9 @@ render() {
 
         return(
             <div className="main-window">
-                    <NewServerModal show={this.state.show} hideModal={this.hideModal} />
+                    {/* <NewServerModal show={this.state.show} hideModal={this.hideModal} /> */}
+                    <ServerModalContainer show={this.state.show} hideModal={this.hideModal} />
+                    {/* <ServerModalContainer /> */}
 
                 <div className = "server-window">
 

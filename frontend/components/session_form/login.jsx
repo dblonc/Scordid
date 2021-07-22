@@ -47,7 +47,7 @@ class Login extends React.Component {
     };
 
 
-    handleSuccessfulSignIn(data) {
+    handleSuccessfulSignIn() {
         if(this.props.processForm(user)){
         this.props.history.push("/servers");
         }

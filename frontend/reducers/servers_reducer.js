@@ -12,7 +12,7 @@ const serverReducer = (oldState = {}, action) =>{
     Object.freeze(oldState);
     switch(action.type){
         case RECEIVE_CURRENT_SERVER:
-            return Object.assign({}, action.currentServer);
+            return Object.assign({},oldState,action.currentServer);
         case DELETE_SERVER:
             return _nullServer;
         case RECEIVE_CURRENT_USER_SERVERS:

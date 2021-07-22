@@ -1,5 +1,6 @@
-.server-modal-wrapper{
+.server-modal-wrapper-old{
     width: 440px;
+    height: fit-content;
     max-height: 580px;
     display: flex;
     -webkit-box-orient: vertical;
@@ -11,14 +12,27 @@
     outline: 0;
     border-radius: 5px;
     background-color: blue;
-   left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    top: 10%;
+    position: absolute;
 }
 
-.modal-top{
+.server-modal-wrapper{
+    width: fit-content;
     position: absolute;
+    background-color: white;
+    z-index: 100000;
+    padding: 24px;
+    top: 20%;
+    border-radius: 5px;
+}
+
+.modal-spacer{
+    display: flex;
+    justify-content: center;
+}
+
+
+.modal-top-old{
     left: 0;
     right: 0;
     top: 0;
@@ -38,7 +52,7 @@
 
 }
 
-.modal-top-text{
+.modal-top-text-old{
     font-family: 'Catamaran',Arial,sans-serif;
     flex: 0 0 auto;
     padding: 24px 16px 0;
@@ -247,7 +261,7 @@
 .server-create{
     color: #fff;
     background-color: #7289da;
-    // width: auto;
+    width: auto;
     height: 38px;
     min-width: 96px;
     position: relative;
