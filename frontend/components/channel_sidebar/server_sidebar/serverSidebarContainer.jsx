@@ -1,9 +1,8 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import Servers from './servers'
-import { login, logout } from '../../actions/session_actions';
+import ServerSideBar from './server_sidebar'
 import { Link } from 'react-router-dom';
-import { requestCurrentUserServers } from '../../actions/server_actions'
+import {requestCurrentUserServers} from '../../../actions/server_actions'
 
 const mSTP = (state) => ({
     errors: state.errors.session,
@@ -12,11 +11,11 @@ const mSTP = (state) => ({
 });
 
 const mDTP = dispatch => ({
-    requestCurrentUserServers: serverId => dispatch(requestCurrentUserServers(serverId)),
+    requestCurrentUserServers: () => dispatch(requestCurrentUserServers()),
     createNewServer: server => dispatch(createNewServer(server))
 
 
 });
 
-export default connect(mSTP, mDTP)(Servers)
+export default connect(mSTP, mDTP)(ServerSideBar)
 

@@ -57,7 +57,7 @@ class NewServerModal extends React.Component {
 
 
     render() { 
-        debugger
+        
         if(!this.props.show){
             return null;
         }
