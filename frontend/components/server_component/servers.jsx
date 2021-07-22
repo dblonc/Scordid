@@ -22,9 +22,7 @@ class Servers extends React.Component {
         };
         this.hideModal = this.hideModal.bind(this);
         this.showModal = this.showModal.bind(this);
-        this.modalbackward = this.modalbackward.bind(this);
-        this.modalforward = this.modalforward.bind(this);
-
+     
 
 
     }
@@ -34,22 +32,10 @@ class Servers extends React.Component {
     };
 
     hideModal(e) {
-        this.setState({ show: false })
+        this.setState(
+            { show: false}
+            )
     };
-
-    modalforward() {
-        this.setState({
-            phasestate: phasestate + 1
-        })
-    };
-
-    modalbackward() {
-        this.setState({
-            phasestate: phasestate - 1
-        })
-    };
-
-
 
 
 render() {

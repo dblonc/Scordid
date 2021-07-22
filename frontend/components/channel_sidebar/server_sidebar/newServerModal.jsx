@@ -5,8 +5,7 @@ import {withRouter} from 'react-router-dom';
 class NewServerModal extends React.Component {
     constructor(props) {
         super(props);
-        this.hideModal = this.hideModal.bind(this);
-
+        
         this.state ={
             phasestate: 1,
             servername: "",
@@ -14,7 +13,8 @@ class NewServerModal extends React.Component {
             owner_id: "",
             private_server: false
         }
-
+        
+        this.hideModal = this.hideModal.bind(this);
         this.modalbackward = this.modalbackward.bind(this);
         this.modalforward = this.modalforward.bind(this);
         this.handlechange = this.handlechange.bind(this);
@@ -42,6 +42,9 @@ class NewServerModal extends React.Component {
 
     hideModal(e){
         this.props.hideModal && this.props.hideModal(e);
+        this.setState({
+            phasestate: 1
+        })
     };
 
     serverCreation(e){
@@ -50,8 +53,6 @@ class NewServerModal extends React.Component {
         this.props.createServer(server);
         if (this.serverCreation) {
             this.props.history.push(`/${this.serverId}`)
-        }else{
-            console.log('server not created')
         }
     }
 
