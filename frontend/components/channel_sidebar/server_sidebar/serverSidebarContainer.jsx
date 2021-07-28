@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import ServerSideBar from './server_sidebar'
 import { Link } from 'react-router-dom';
-import {requestCurrentUserServers} from '../../../actions/server_actions'
+import {requestCurrentUserServers, deleteServer} from '../../../actions/server_actions'
 
 const mSTP = (state) => ({
     errors: state.errors.session,
@@ -12,7 +12,8 @@ const mSTP = (state) => ({
 
 const mDTP = dispatch => ({
     requestCurrentUserServers: () => dispatch(requestCurrentUserServers()),
-    createNewServer: server => dispatch(createNewServer(server))
+    createNewServer: server => dispatch(createNewServer(server)),
+    deleteServer: serverId => dispatch(deleteServer(serverId))
 
 
 });

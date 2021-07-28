@@ -35,6 +35,7 @@ class ServerSideBar extends React.Component {
                     </div>
                 </a>
                 <button className="add_server_btn" onClick={e => this.props.showModal()} >+</button>
+                <button onClick={e => this.props.deleteServer}>Del</button>
             </div>
         )
     }

@@ -3,7 +3,7 @@ import React from 'react';
 import Servers from './servers'
 import { login, logout } from '../../actions/session_actions';
 import { Link } from 'react-router-dom';
-import { requestCurrentUserServers} from '../../actions/server_actions'
+import { requestCurrentUserServers, deleteServer } from '../../actions/server_actions'
 
 const mSTP = (state) =>({
     errors: state.errors.session,
@@ -13,6 +13,7 @@ const mSTP = (state) =>({
 
 const mDTP = dispatch =>({
     requestCurrentUserServers : serverId => dispatch (requestCurrentUserServers(serverId)),
+    deleteServer : serverId => dispatch (deleteServer(serverId))
     
 });
 

@@ -9,9 +9,6 @@ import ServerModalContainer from '../channel_sidebar/server_sidebar/serverModalC
 import ServerSidebarContainer from '../channel_sidebar/server_sidebar/serverSidebarContainer'
 import Channel_sidebar_container from '../channel_sidebar/channel_sidebar_container'
 
-
-
-
 class Servers extends React.Component {
     constructor(props) {
         super(props);
@@ -20,11 +17,9 @@ class Servers extends React.Component {
             show: false,
             phasestate: 1
         };
+
         this.hideModal = this.hideModal.bind(this);
         this.showModal = this.showModal.bind(this);
-     
-
-
     }
 
     showModal(e) {
@@ -37,15 +32,14 @@ class Servers extends React.Component {
             )
     };
 
+ 
 
 render() {
-     
 
         return(
             <div className="main-window">
                     {/* <NewServerModal show={this.state.show} hideModal={this.hideModal} /> */}
                     <ServerModalContainer show={this.state.show} hideModal={this.hideModal} />
-                    {/* <ServerModalContainer /> */}
 
                 <div className = "server-window">
 
