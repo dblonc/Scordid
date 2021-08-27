@@ -1,14 +1,21 @@
 class Api::ChannelsController < ApplicationController
 
     def create
+        # debugger
         @channel = Channel.new(channel_params)
-        @channel.hostserver_id = @server.id 
+        # @channel.hostserver_id = param[:server_id] 
 
         if @channel.save
             render :show
         else
             render json: @channel.errors.full_messages, status: 422
         end
+    end
+
+    def index 
+        @server = Server.includes(:channels).find(params[:server_id])
+        @channels = @server.channels
+        render :index
     end
 
     def update
@@ -34,6 +41,6 @@ class Api::ChannelsController < ApplicationController
 private
 
     def channel_params
-        params.require(:channel).permit(:channelname, :description)
+        params.require(:channel).permit(:channelname, :description, :hostserver_id)
     end
 end

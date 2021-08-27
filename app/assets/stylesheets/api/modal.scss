@@ -26,6 +26,7 @@
     border-radius: 5px;
 }
 
+
 .modal-spacer{
     display: flex;
     justify-content: center;
@@ -116,8 +117,9 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: rgba($color: darkgrey, $alpha: 0.1);
+    background-color: rgba($color: rgb(46, 46, 46), $alpha: 0.5);
 }
+
 
 .for-buttons{
     width: 406px;

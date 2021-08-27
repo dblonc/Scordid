@@ -37,6 +37,32 @@
 
 };
 
+.list-icon{
+  background: rgb(random(255), random(255), random(255));
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    display: flex;
+    margin: 5px auto; 
+    align-items: center; 
+    text-align: center;
+    justify-content: center
+};
+
+.list-icon:hover{
+    border-radius: 16px;
+    transition: .25s;
+    text-decoration: underline;
+    color: white;
+}
+
+.id-list{
+    font-style: none;
+    color: white;
+    
+    
+}
+
 .separator{
     height: 2px;
     width: 32px;

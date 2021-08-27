@@ -14,7 +14,9 @@ const serverReducer = (oldState = {}, action) =>{
         case RECEIVE_CURRENT_SERVER:
             return Object.assign({},oldState,action.currentServer);
         case DELETE_SERVER:
-            return _nullServer;
+            let newstate = Object.assign({},oldState)
+            delete newstate[action.server]
+            return newstate;
         case RECEIVE_CURRENT_USER_SERVERS:
             
             return Object.assign({}, action.payload);

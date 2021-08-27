@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Switch, Route } from 'react-router-dom';
 import ChannelSidebar from '../channel_sidebar/channel_sidebar_container';
 import Chatbox from '../chat_box_component/chat_box';
 import MembersSidebar from '../members_sidebar/members_sidebar';
@@ -8,6 +8,7 @@ import NewServerModal from '../channel_sidebar/server_sidebar/newServerModal'
 import ServerModalContainer from '../channel_sidebar/server_sidebar/serverModalContainer';
 import ServerSidebarContainer from '../channel_sidebar/server_sidebar/serverSidebarContainer'
 import Channel_sidebar_container from '../channel_sidebar/channel_sidebar_container'
+import Channel_modal_container from '../channel_sidebar/channel_modal_container'
 
 class Servers extends React.Component {
     constructor(props) {
@@ -15,20 +16,33 @@ class Servers extends React.Component {
 
         this.state = {
             show: false,
+            showC: false,
             phasestate: 1
         };
 
         this.hideModal = this.hideModal.bind(this);
         this.showModal = this.showModal.bind(this);
+        this.showCModal = this.showCModal.bind(this);
+        this.hideCModal = this.hideCModal.bind(this)
     }
 
     showModal(e) {
         this.setState({ show: !this.state.show })
     };
 
+    showCModal(e) {
+        this.setState({ showC: !this.state.showC })
+    };
+
     hideModal(e) {
         this.setState(
             { show: false}
+            )
+    };
+
+    hideCModal(e) {
+        this.setState(
+            { showC: false}
             )
     };
 
@@ -42,20 +56,27 @@ render() {
                     <ServerModalContainer show={this.state.show} hideModal={this.hideModal} />
 
                 <div className = "server-window">
-
-                    {/* <ServerSideBar  
-                        requestCurrentUserServers={this.props.requestCurrentUserServers}
-                        user_id={this.props.user_id}
-                        currentUserServers = {this.props.currentUserServers}
-                        showModal={this.showModal}
-                        show = {this.state.show}
-                    /> */}
                     <ServerSidebarContainer showModal={this.showModal}
                         show={this.state.show} />
-                    <Channel_sidebar_container />
+
+                    {/* <Channel_sidebar_container />
                     <Chatbox/>
                     
-                    <MembersSidebar/>
+                    <MembersSidebar/> */}
+                    
+                    <Switch>
+                        <Route path = '/servers/:id' render = {(props) =>
+                            <>
+                                <Channel_modal_container showC={this.state.showC} hideCModal={this.hideCModal} />
+                                {/* <Route path = "/servers/:id/" component = {Channel_sidebar_container} */}
+                                <Channel_sidebar_container showC={this.state.showC} showCModal={this.showCModal} hideCModal={this.hideCModal}/>
+                                <Chatbox/>
+                                <MembersSidebar/>
+                            </>}>
+
+                        </Route>
+                    </Switch>
+
                     
                 </div>
             </div>

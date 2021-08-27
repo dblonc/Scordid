@@ -47,23 +47,17 @@ class NewServerModal extends React.Component {
         })
     };
 
-    // serverCreation(e){
-    //     e.preventDefault();
-    //     const server = Object.assign({}, this.state)
-    //     this.props.createServer(server);
-    //     if (this.serverCreation) {
-    //         this.props.history.push(`/${this.serverId}`)
-    //     }
-    // }
+  // Make a new server within the modal
+
     serverCreation(e){
         e.preventDefault();
         const server = Object.assign({}, this.state)
         this.props.createServer(server).then( (res) =>{
-            debugger
             const id = parseInt( Object.keys(res.currentServer)[0])
             this.props.history.push(`/servers/${id}`)
         }
         )
+        .then(this.hideModal())
     }
 
 
@@ -154,7 +148,7 @@ class NewServerModal extends React.Component {
                         <div className="create-back-button" onClick={this.modalbackward}>
                         Back
                         </div>
-                        <button className="server-create" type='submit' >Create</button>
+                                <button className="server-create" type='submit' >Create</button>
                     </div>
                             
 

@@ -41,11 +41,12 @@ class App extends React.Component{
         return(
     <div>
         <Switch>
-        <AuthRoute exact path="/login" component={login} />
-        <AuthRoute exact path="/signup" component={signup} />
-        <ProtectedRoute exact path="/servers" component={serverContainer}/>
+            <AuthRoute exact path="/login" component={login} />
+            <AuthRoute exact path="/signup" component={signup} />
+            <ProtectedRoute path="/servers/" component={serverContainer}/> 
+            <ProtectedRoute  path="/servers/" component={serverContainer}/>
             <Route exact path='/' render = {props => (
-            <SplashContainer {...props} loggedIn = {this.state.loggedIn}/>
+                <SplashContainer {...props} loggedIn = {this.state.loggedIn}/>
             )}/> 
         </Switch>
     </div>

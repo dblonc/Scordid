@@ -1,21 +1,21 @@
-export const fetchChannels = () => (
+export const fetchServerChannels = serverId => (
     $.ajax({
-        url: '/api/servers'
+        url: `/api/servers/${serverId}/channels`
     })
 )
 
-export const createChannel = channelId => (
+export const createChannel = channel => (
     $.ajax({
         method: 'POST',
-        url: `/api/servers/${channelId}`,
+        url: `/api/servers/${channel.hostserver_id}/channels/`,
         data: { channel }
     })
 );
 
 
-export const deleteChannel = channelId => {
+export const deleteChannel = (channelId, serverId) => {
     return $.ajax({
         method: 'DELETE',
-        url: `/api/servers/${channelId}`
+        url: `/api/servers/${serverId}/channels/${channelId}`
     })
 }

@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import React from 'react';
 import NewServerModal from './newServerModal';
 import { createServer } from '../../../actions/server_actions';
 
