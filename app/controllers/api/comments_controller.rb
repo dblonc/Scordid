@@ -1,12 +1,16 @@
 class Api::CommentsController < ApplicationController
 
     def create
+        debugger
         @comment = Comment.new(comment_params)
-        @comment.user_id = @current_user.id
-
+        @comment.user_id = current_user.id
+        # @comment.server_id = params[:server_id]
+        @comment.channel_id = params[:channel_id]
+        @comment.is_private = false
         if @comment.save
             render :show
         else
+            debugger
             render json: @comment.errors.full_messages, status:422
         end
     end
@@ -35,6 +39,9 @@ class Api::CommentsController < ApplicationController
 
             @comment.destroy
             render json: @comment.id
+        else
+            render json: ['This is not your message to delete!'], status: 422
+
         end
 
     end

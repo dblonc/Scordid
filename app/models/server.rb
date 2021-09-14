@@ -22,9 +22,12 @@ class Server<ApplicationRecord
     foreign_key: :hostserver_id,
     class_name: :Channel
 
-    has_many :members,
+    has_many :memberships,
     foreign_key: :server_id,
     class_name: :Membership
+
+    has_many :users,
+    through: :memberships
 
 
 end
