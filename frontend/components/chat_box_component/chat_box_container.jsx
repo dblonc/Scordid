@@ -1,13 +1,19 @@
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom'
-import { createComment } from '../../actions/comment_actions';
+import { createComment, fetchChannelComments, receiveAllComments } from '../../actions/comment_actions';
 import Chatbox from './chat_box';
 
-
-const mDTP = (dispatch) => {
+const mSTP = (state) => {
     return {
-        createComment: (serverId, channelId, comment) => dispatch(createComment(serverId, channelId, comment))
+        comments: Object.values(state.entities.comments)
     }
 }
 
-export default withRouter(connect(null, mDTP)(Chatbox));
+const mDTP = (dispatch) => {
+    return {
+        createComment: (serverId, channelId, comment) => dispatch(createComment(serverId, channelId, comment)),
+        fetchChannelComments: (serverId, channelId) => dispatch(fetchChannelComments(serverId, channelId))
+    }
+}
+
+export default withRouter(connect(mSTP, mDTP)(Chatbox));

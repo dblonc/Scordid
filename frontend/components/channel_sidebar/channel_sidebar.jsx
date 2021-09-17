@@ -25,7 +25,6 @@ class ChannelSidebar extends React.Component {
     fetchServerChannels(){
         
         return this.props.serverChannels.map(channel =>
-                // debugger
                 <ul key = {channel.id}>
                     <div className="channel-box">
                         <Link to={`/servers/${this.props.match.params.id}/channels/${channel.id}`}><li className="channel-listing"># {channel.channelname}</li></Link>

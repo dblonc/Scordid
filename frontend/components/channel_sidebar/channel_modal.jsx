@@ -31,7 +31,6 @@ class NewChannelModal extends React.Component {
         const channel = Object.assign({}, this.state)
         channel.hostserver_id = parseInt(this.props.match.params.id)
         this.props.createChannel(channel).then((res) => {
-            // debugger
             const id = parseInt(Object.keys(res.currentChannel)[0])
             const server_id = Object.values(res.currentChannel)[0].hostserver_id
             this.props.history.push(`/servers/${server_id}/channels/${id}`)

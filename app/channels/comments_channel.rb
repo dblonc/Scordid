@@ -1,7 +1,7 @@
 class CommentsChannel < ApplicationCable::Channel
 
     def subscribed
-        stream_for "comments_channel#{params[:channelId]}"
+        stream_for "ChatRoom-#{params[:channelId]}"
     end
 
     def speak(data)

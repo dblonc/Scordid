@@ -45,8 +45,8 @@ export const deleteComment = (channelId, serverId, commentId) => dispatch =>(
     ))
 );
 
-export const fetchChannelComments = channelId => dispatch => (
-    APIUtil.fetchChannelComments(channelId).then(comments =>(
+export const fetchChannelComments = (serverId, channelId) => dispatch => (
+    APIUtil.fetchChannelComments(serverId, channelId).then(comments =>(
         dispatch(receiveAllComments(comments))
     ))
 );

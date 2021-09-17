@@ -13,6 +13,7 @@ class Chatbox extends React.Component {
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.fetchChannelMessages = this.fetchChannelMessages.bind(this)
     }
 
     handleChange(e){
@@ -31,11 +32,27 @@ class Chatbox extends React.Component {
         
     }
 
+    fetchChannelMessages(){
+        return this.props.comments.map(comment =>
+            <ul key = {comment.id}>
+                <div className = "chat-comments">
+                    {comment.message}
+                </div>
+            </ul>
+            )
+    }
+
+    componentDidMount(){
+        const channel_id = this.props.match.params.channel_id
+        const server_id = this.props.match.params.id
+        this.props.fetchChannelComments(server_id, channel_id)
+    }
+
     render() {
         return (
             <div className="chat-window">
                 <div className="messages">
-
+                {this.fetchChannelMessages()}
                 </div>
                 <div className="chat-area">
                     <input placeholder="Message this channel" type="text" className = "chat-input" onChange={this.handleChange}></input>

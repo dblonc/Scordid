@@ -24,7 +24,7 @@ class ServerSideBar extends React.Component {
             .then(this.props.history.push('/servers/'))
     };
     // componentDidUpdate(prevProps) {
-    //     debugger
+    //     
     //     if (prevProps.currentUserServers !== this.props.currentUserServers){
     //         this.setState({
     //             servers: this.props.currentUserServers
@@ -35,7 +35,7 @@ class ServerSideBar extends React.Component {
    fetchCurrentServers(){
        
     //    const serverList = this.props.requestCurrentUserServers(this.props.user_id)
-    //    debugger
+    //    
     //     const servers = this.props.currentUserServers.map(server => server.id)
     //    return(
     //         <>

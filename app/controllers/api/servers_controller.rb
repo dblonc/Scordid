@@ -1,7 +1,7 @@
 class Api::ServersController < ApplicationController
 
     def create
-        debugger
+        
         @server = Server.new(strong_params)
         @server.owner_id = current_user.id
         
