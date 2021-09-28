@@ -1,12 +1,17 @@
 class CommentsChannel < ApplicationCable::Channel
 
+    # def subscribed
+    #     stream_from "comments_channel#{params[:channelId]}"
+    # end
+
     def subscribed
         stream_for "comments_channel#{params[:channelId]}"
     end
 
     def speak(data)
-        socket = {message: {message: data['body'], sender_id: data["authorId"], channel_id: data["channelId"]}}
-        CommentsChannel.broadcast_to("comments_channel", socket)
+        socket = {comment: { user_id: data["user_id"], channel_id: data["channel_id"], message: data["message"] }}
+        CommentsChannel.broadcast_to("comments_channel#{params[:channelId]}", socket)
+     
     end
 
 end

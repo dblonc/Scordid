@@ -4,7 +4,8 @@ export const CREATE_COMMENT = 'CREATE_COMMENT';
 export const DELETE_COMMENT = 'DELETE_COMMENT';
 export const RECEIVE_COMMENT_ERRORS = 'RECEIVE_COMMENT_ERRORS';
 export const RECEIVE_ALL_COMMENTS = 'RECEIVE_ALL_COMMENTS';
-export const RECEIVE_CURRENT_COMMENT = 'RECEIVE_CURRENT_COMMENT'
+export const RECEIVE_CURRENT_COMMENT = 'RECEIVE_CURRENT_COMMENT';
+export const RECEIVE_CHANNEL_COMMENTS = 'RECEIVE_CHANNEL_COMMENTS'
 
 
 export const createNewComment = comment => ({
@@ -32,6 +33,11 @@ export const receiveCurrentComment = comment => ({
     comment
 });
 
+export const receiveChannelComments = (payload) => ({
+    type: RECEIVE_CHANNEL_COMMENTS,
+    payload
+})
+
 export const createComment = (serverId, channelId, comment) => dispatch => (
     APIUtil.createComment(serverId, channelId, comment).then(comment => (
         dispatch(receiveCurrentComment(comment))
@@ -47,7 +53,7 @@ export const deleteComment = (channelId, serverId, commentId) => dispatch =>(
 
 export const fetchChannelComments = (serverId, channelId) => dispatch => (
     APIUtil.fetchChannelComments(serverId, channelId).then(comments =>(
-        dispatch(receiveAllComments(comments))
+        dispatch(receiveChannelComments(comments))
     ))
 );
 

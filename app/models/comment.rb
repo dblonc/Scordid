@@ -10,6 +10,4 @@ class Comment<ApplicationRecord
     foreign_key: :user_id,
     class_name: :User
 
-    after_create_commit {CommentBroadcastJob.perform_later(self)}
-
 end

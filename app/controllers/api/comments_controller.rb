@@ -18,6 +18,8 @@ class Api::CommentsController < ApplicationController
         @comment.is_private = false
         
         if @comment.save
+            # socket = {message: {message: @comment.message, sender_id: @comment.user_id, channel_id: @comment.channel_id}}
+            # CommentsChannel.broadcast_to("comments_channel", socket)
             render :show
         else
             

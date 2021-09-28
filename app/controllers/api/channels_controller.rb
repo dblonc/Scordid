@@ -3,8 +3,6 @@ class Api::ChannelsController < ApplicationController
     def create
         
         @channel = Channel.new(channel_params)
-        # @channel.hostserver_id = param[:server_id] 
-
         if @channel.save
             render :show
         else
