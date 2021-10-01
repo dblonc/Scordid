@@ -13,7 +13,8 @@ const mSTP = (state) =>({
 
 const mDTP = dispatch =>({
     requestCurrentUserServers : () => dispatch (requestCurrentUserServers()),
-    deleteServer : serverId => dispatch (deleteServer(serverId))
+    deleteServer : serverId => dispatch (deleteServer(serverId)),
+
     
 });
 

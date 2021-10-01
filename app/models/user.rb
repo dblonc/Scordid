@@ -35,8 +35,8 @@ class User < ApplicationRecord
     has_many :servers,
     through: :memberships
 
-    has_many :channels,
-    through: :servers
+    # has_many :channels,
+    # through: :servers
 
 
 

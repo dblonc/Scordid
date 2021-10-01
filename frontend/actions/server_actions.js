@@ -49,5 +49,11 @@ export const requestCurrentUserServers = () => dispatch => (
     APIUtil.showServers().then(payload => (
         dispatch(receiveCurrentUserServers(payload))
     ))
+);
+
+export const joinServer = inviteCode => dispatch => (
+    APIUtil.joinServer(inviteCode).then(server =>(
+        dispatch(receiveCurrentServer(server))
+    ))
 )
 

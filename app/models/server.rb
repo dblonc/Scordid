@@ -22,12 +22,30 @@ class Server<ApplicationRecord
     foreign_key: :hostserver_id,
     class_name: :Channel
 
-    has_many :memberships,
+    has_many :members,
     foreign_key: :server_id,
     class_name: :Membership
 
-    has_many :users,
-    through: :memberships
+    # has_many :member_users,
+    # through: :members
 
+    after_initialize :ensure_invite_code
+
+
+    def generate_invite_code
+        generated_invite_code = '%06d' % rand(10**6)
+
+        if (Server.find_by(invite_code: generated_invite_code))
+            generated_invite_code = '%06d' % rand(10**6)
+        end
+
+        self.invite_code = generated_invite_code
+    end
+
+    def ensure_invite_code
+        if(!self.invite_code)
+            generate_invite_code
+        end
+    end
 
 end
