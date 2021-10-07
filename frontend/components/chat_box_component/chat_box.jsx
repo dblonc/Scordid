@@ -48,24 +48,30 @@ class Chatbox extends React.Component {
     }
 
     fetchChannelComments(){
+        
+        // this.props.serverMembers.forEach(user =>{
+        //     if(user.id === comment.user_id){
+        //         const displayname = user.username
+        //     }
+        // })
+        
         return this.props.comments.map(comment =>
             <ul key = {comment.id}>
                 <div className = "chat-comments">
-                  {this.props.users[0].username}: {comment.message}
+                  {this.props.username}: {comment.message}
                 </div>
             </ul>
             )
-    }
+    };
+    
 
     subscribeUser(){
-        // App.cable.subscriptions.create({ channel: "CommentsChannel", channelId: this.props.match.params.channel_id },
         const channel_id = this.props.match.params.channel_id
         App.cable.subscriptions.create({ channel: "CommentsChannel"},
 
             {
                 received: data => {
                     this.receiveReply(data)
-                    // this.props.fetchChannelComments(this.props.match.params.id, this.props.match.params.channel_id)
 
                 },
 
@@ -79,9 +85,7 @@ class Chatbox extends React.Component {
     }
     
     receiveReply(data){
-        // debugger
         if(this.props.user_id !== data.comment.user_id){
-            // this.props.receiveCurrentComment({comment: data})
             this.props.fetchChannelComments(this.props.match.params.id, this.props.match.params.channel_id)
         }
     }
@@ -95,12 +99,11 @@ class Chatbox extends React.Component {
     }
 
     componentDidUpdate(prevProps){
-        debugger
+        
         const channel_id = parseInt(this.props.match.params.channel_id)
         const server_id = parseInt(this.props.match.params.id)
 
         if(prevProps.match.params.channel_id !== this.props.match.params.channel_id){
-            debugger
             this.props.fetchChannelComments(server_id, this.props.match.params.channel_id)
             this.subscribeUser()
         }

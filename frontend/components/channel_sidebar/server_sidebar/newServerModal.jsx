@@ -121,7 +121,7 @@ class NewServerModal extends React.Component {
                 <div className="modal-create-buttons">
                     <button className="my-own" onClick={this.modalforward}>Create my Own</button>
                 </div>
-                <div classname="modal-join-section">
+                <div className="modal-join-section">
                     Have an Invite Already?
                     <button className="join_server_btn" onClick={this.modalJoin}>Join Server</button>
 

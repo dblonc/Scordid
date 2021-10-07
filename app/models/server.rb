@@ -26,6 +26,10 @@ class Server<ApplicationRecord
     foreign_key: :server_id,
     class_name: :Membership
 
+    has_many :users,
+    through: :members
+    
+
     # has_many :member_users,
     # through: :members
 

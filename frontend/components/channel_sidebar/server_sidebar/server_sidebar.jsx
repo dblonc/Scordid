@@ -12,6 +12,7 @@ class ServerSideBar extends React.Component {
 
         this.fetchCurrentServers = this.fetchCurrentServers.bind(this)
         this.onDelete = this.onDelete.bind(this)
+        this.serverClick = this.serverClick.bind(this)
     }
 
     componentDidMount() {
@@ -23,38 +24,25 @@ class ServerSideBar extends React.Component {
         this.props.deleteServer(server.id)
             .then(this.props.history.push('/servers/'))
     };
-    // componentDidUpdate(prevProps) {
-    //     
-    //     if (prevProps.currentUserServers !== this.props.currentUserServers){
-    //         this.setState({
-    //             servers: this.props.currentUserServers
-    //         })
-    //     }
-    // }
 
-   fetchCurrentServers(){
-       
-    //    const serverList = this.props.requestCurrentUserServers(this.props.user_id)
-    //    
-    //     const servers = this.props.currentUserServers.map(server => server.id)
-    //    return(
-    //         <>
-            
-    //             <ul></ul>
-    //             {servers}
-    //             <p>OMG</p>
-    //         </>
-            
-    //     )
 
-    
-    return this.props.currentUserServers.map(server => 
+    renderDelete(data){
+        if(this.props.user_id===data.owner_id){
+            return(
+            <button onClick={e => this.onDelete(data)}>Del</button>
+            )
+        }else{
+            return null
+        }
+    }
 
+    fetchCurrentServers(){
+        
+    return this.props.currentUserServers.map(server =>         
         <ul key = {server.id}>
             <div className="list-icon" >
                     <Link to={`/servers/${server.id}`}><li className="id-list"> {server.id}</li></Link>
-                    <button onClick={e => this.onDelete(server)}>Del</button>
-
+                    {this.renderDelete(server)}
             </div>
   
         </ul>
@@ -62,11 +50,14 @@ class ServerSideBar extends React.Component {
        
    };
 
+    serverClick() {
+        this.props.fetchServerChannels(this.props.match.params.id)
+        this.props.history.push(`/servers/${server.id}/channels/${server.channels[0].id}`)
+    }
+
 
     render() {
-       
      
-        
         return (
             <div className = "sidebarnav">
                 <a href="#/servers/">

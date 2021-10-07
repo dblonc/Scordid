@@ -14,7 +14,7 @@
 
     @servers.each do |server|
         json.set! server.id do 
-            json.extract! server, :id, :servername, :description, :owner_id, :members
+            json.extract! server, :id, :servername, :description, :owner_id, :users
         json.invite_code server.invite_code
         end
     end

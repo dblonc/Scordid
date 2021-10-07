@@ -4,12 +4,15 @@ import { createComment, fetchChannelComments, receiveAllComments, receiveCurrent
 import Chatbox from './chat_box';
 
 
-const mSTP = (state) => {
+const mSTP = (state, ownProps) => {
     
     return {
         comments: Object.values(state.entities.comments),
-        user_id: state.session.id,
-        users: Object.values(state.entities.users) 
+        users: Object.values(state.entities.users) ,
+        serverMembers: state.entities.servers[ownProps.match.params.id].users,
+        username: state.entities.users[state.session.id].username
+
+
     }
 }
 

@@ -55,5 +55,11 @@ export const joinServer = inviteCode => dispatch => (
     APIUtil.joinServer(inviteCode).then(server =>(
         dispatch(receiveCurrentServer(server))
     ))
+);
+
+export const leaveServer = serverId => dispatch => (
+    APIUtil.leaveServer(serverId).then((serverId)=>(
+        dispatch(deleteCurrentServer(serverId))
+    ))
 )
 
