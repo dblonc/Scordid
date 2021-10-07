@@ -19,8 +19,10 @@ class ChannelSidebar extends React.Component {
         
         let id = parseInt(this.props.match.params.id)
         return(
-            <div className="title-box">
-                <h3 className="channel-title">{this.props.servers[id].servername}</h3>
+            <div className="channel-title-container">
+                <div className="title-box">
+                    <h3 className="channel-title">{this.props.servers[id].servername}</h3>
+                </div>
             </div>
         )
     }
@@ -51,9 +53,11 @@ class ChannelSidebar extends React.Component {
         
         return this.props.serverChannels.map(channel =>
                 <ul key = {channel.id}>
-                    <div className="channel-box">
-                        <Link to={`/servers/${this.props.match.params.id}/channels/${channel.id}`}><li className="channel-listing"># {channel.channelname}</li></Link>
-                    {this.renderDelete(channel)}
+                    <div className="channel-listing-wrapper">
+                        <div className="channel-box">
+                            <Link to={`/servers/${this.props.match.params.id}/channels/${channel.id}`}><li className="channel-listing"># {channel.channelname}</li></Link>
+                            {this.renderDelete(channel)}
+                        </div>
                     </div>
                 </ul>
                 
@@ -77,7 +81,6 @@ class ChannelSidebar extends React.Component {
         e.preventDefault();
         this.props.leaveServer({server_id: this.props.match.params.id}).then(()=>{
             this.props.requestCurrentUserServers();
-            // if(this.props.match.params.id == this)
             this.props.history.push('/servers/')
         })
     }
@@ -90,30 +93,32 @@ class ChannelSidebar extends React.Component {
         }
         
         return (
-            <div className="channel-sidebar-nav">
-                {this.renderChannelName()}
-                <div className = "channel-list">
-                    {/* <div className="channel-box">
-                        <span className="channel-listing"># channel no 1</span>
-                    </div>
-                    <div className="channel-box">
-                        <span className="channel-listing"># channel no 2</span>
-                    </div>
-                    <div className="channel-box">
-                        <span className="channel-listing"># channel no 3</span>
-                    </div> */}
-                    {this.fetchServerChannels()}
-                    {this.renderAddChannel()}
-                    <button onClick={this.leaveServer}>Leave</button>
-                </div>
-                <div className="personal-tab">
-                    <div className= "profile-pic"></div>
-                    <div className="nametag-box">
-                        <div className="userbox">
-                        <div className="nametag">{this.props.username}</div>
+            <div className="channel-sidebar-container">
+                <div className="channel-sidebar-nav">
+                    {this.renderChannelName()}
+                    <div className = "channel-list">
+                        {/* <div className="channel-box">
+                            <span className="channel-listing"># channel no 1</span>
                         </div>
-                        <div className="numbertag"># {this.props.user_id}</div>
-                        <button onClick={this.props.logout} >Log Out</button>
+                        <div className="channel-box">
+                            <span className="channel-listing"># channel no 2</span>
+                        </div>
+                        <div className="channel-box">
+                            <span className="channel-listing"># channel no 3</span>
+                        </div> */}
+                        {this.fetchServerChannels()}
+                        {this.renderAddChannel()}
+                        <button onClick={this.leaveServer}>Leave</button>
+                    </div>
+                    <div className="personal-tab">
+                        <div className= "profile-pic"></div>
+                        <div className="nametag-box">
+                            <div className="userbox">
+                            <div className="nametag">{this.props.username}</div>
+                            </div>
+                            <div className="numbertag"># {this.props.user_id}</div>
+                            <button onClick={this.props.logout} >Log Out</button>
+                        </div>
                     </div>
                 </div>
             </div>

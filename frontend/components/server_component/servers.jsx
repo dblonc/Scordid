@@ -73,7 +73,6 @@ render() {
                                     <Chat_box_container/>
                                 </Route>
 
-                                <Members_container/>
                             </>}>
 
                         </Route>

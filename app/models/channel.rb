@@ -11,7 +11,6 @@
 #
 class Channel<ApplicationRecord
     validates :description, :channelname, :hostserver_id, presence: true 
-    validates :channelname, uniqueness: true
 
     belongs_to :server,
     foreign_key: :hostserver_id,
