@@ -3,8 +3,7 @@ json.set! @server.id do
 end
 
 
-    # json.currentUserServers @servers.each do |server|
-    #     json.id server.id 
-    #     json.servername server.servername
-    #     json.description server.description
-    # end
+json.set! @membership.user_id do 
+   json.extract! @membership, :id, :user_id, :user
+end
+

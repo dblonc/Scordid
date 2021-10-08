@@ -1,26 +1,50 @@
+.channel-sidebar-container{
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
+    position: relative;
+}
+
+.channel-sidebar-nav{
+    position: relative;
+    box-sizing: border-box;
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
+    background-color: #2f3136;
+    border-bottom: 5px #202225;
+    // overflow: hidden scroll;
+    display: block;
+}
+
+.channel-title-container{
+    display: flex;
+    -webkit-box-direction: normal;
+    border-bottom: solid rgb(26, 26, 26);
+}
+
 .channel-title{
-   
-   
     font-family: 'Catamaran',Arial,sans-serif;
     color: white;
-
 };
 
 .title-box{
-     display: flex;
+    display: flex;
     justify-content: space-between;
     padding: 20px;
     background-color: #2f3136;
     border-bottom: 5px #202225;
-     margin: 0;
+    margin: 0;
     align-items: center;
     width: 250px;
 }
 
-.channel-sidebar-nav{
-    background-color: #2f3136;
-    border-bottom: 5px #202225;
-}
 
 .channel-listing{
     -webkit-box-flex: 1;
@@ -70,7 +94,7 @@
     margin-bottom: 1px;
     position: absolute;
     bottom: 0;
-    width: 275px;
+    width: 250px;
 }
 
 .profile-pic{

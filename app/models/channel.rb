@@ -11,17 +11,22 @@
 #
 class Channel<ApplicationRecord
     validates :description, :channelname, :hostserver_id, presence: true 
-    validates :channelname, uniqueness: true
 
     belongs_to :server,
     foreign_key: :hostserver_id,
     class_name: :Server
 
-    has_many :comments,
+    has_many :comments, 
     foreign_key: :channel_id,
-    class_name: :Comment
+    class_name: :Comment,
+    dependent: :destroy
 
-  
+    has_many :memberships,
+    through: :server
+
+    has_many :users,
+    through: :memberships
+
 
 
 

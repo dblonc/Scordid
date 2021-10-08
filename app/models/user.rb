@@ -32,6 +32,12 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: :Membership
 
+    has_many :servers,
+    through: :memberships
+
+    # has_many :channels,
+    # through: :servers
+
 
 
 

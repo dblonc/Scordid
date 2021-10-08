@@ -34,8 +34,14 @@ Rails.application.routes.draw do
     resources :users
     resource :session, only: [:create, :destroy]
     resources :servers do 
-      resources :channels
+      resources :channels do
+        resources :comments
+      end
     end
+    post 'servers/join', to: 'servers#join_server'
+    delete 'servers', to: 'servers#leave_server'
   end
+
+  mount ActionCable.server => '/cable'
 
 end

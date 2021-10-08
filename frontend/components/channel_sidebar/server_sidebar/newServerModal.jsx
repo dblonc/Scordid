@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import {withRouter} from 'react-router-dom';
+import {channelCreation} from '../channel_modal'
 
 class NewServerModal extends React.Component {
     constructor(props) {
@@ -11,7 +12,8 @@ class NewServerModal extends React.Component {
             servername: "",
             description: "Insert Description Here",
             owner_id: "",
-            private_server: false
+            private_server: false,
+            inviteCode: ""
         }
         
         this.hideModal = this.hideModal.bind(this);
@@ -19,6 +21,9 @@ class NewServerModal extends React.Component {
         this.modalforward = this.modalforward.bind(this);
         this.handlechange = this.handlechange.bind(this);
         this.serverCreation = this.serverCreation.bind(this);
+        this.modalJoin = this.modalJoin.bind(this)
+        this.handleJoin = this.handleJoin.bind(this)
+        this.updateCode = this.updateCode.bind(this)
     }
 
     // Modal Settings
@@ -34,6 +39,12 @@ class NewServerModal extends React.Component {
         })
     };
 
+    modalJoin(){
+        this.setState({
+            phasestate: 4
+        })
+    }
+
     handlechange(e){
         this.setState({
             servername: e.target.value
@@ -47,6 +58,32 @@ class NewServerModal extends React.Component {
         })
     };
 
+    handleJoin(e){
+        e.preventDefault();
+        let cInput = this.state.inviteCode;
+        let tempinviteCode = parseInt(cInput)
+        // if (inviteCode.length < 6){
+            //     return(
+                
+                //     )
+                // }
+        this.props.joinServer({inviteCode: tempinviteCode}).then((action)=>{
+            this.props.hideModal();
+            this.props.requestCurrentUserServers();
+            // this.props.history.push()
+        })
+        this.setState({
+            phasestate: 1
+        })
+    }
+
+    updateCode(e){
+        e.preventDefault();
+        this.setState({
+            inviteCode: e.target.value
+        })
+    }
+
   // Make a new server within the modal
 
     serverCreation(e){
@@ -55,6 +92,7 @@ class NewServerModal extends React.Component {
         this.props.createServer(server).then( (res) =>{
             const id = parseInt( Object.keys(res.currentServer)[0])
             this.props.history.push(`/servers/${id}`)
+            // this.props.channelCreation({channelname: "General", description: "Insert Description Here", hostserver_id: parseInt(this.props.match.params.id)})
         }
         )
         .then(this.hideModal())
@@ -82,6 +120,11 @@ class NewServerModal extends React.Component {
                 </div>
                 <div className="modal-create-buttons">
                     <button className="my-own" onClick={this.modalforward}>Create my Own</button>
+                </div>
+                <div className="modal-join-section">
+                    Have an Invite Already?
+                    <button className="join_server_btn" onClick={this.modalJoin}>Join Server</button>
+
                 </div>
             </>
 
@@ -157,17 +200,44 @@ class NewServerModal extends React.Component {
                 </div>
             </>
         )
+        
+        const fourthphase = (
+            <>
+                <div>
+                    <h3>Join a Server</h3>
+                </div>
+                <div>
+                    <p>Enter an invite code below to join a server</p>
+                </div>
+                <div>
+                    <div>
+                        <h5>INVITE CODE</h5>
+                    </div>
+                    <div>
+                        <input type="text" onChange={this.updateCode}/>
+                    </div>
+                    <div>
+                        <button>back</button>
+                        <br />
+                        <button onClick={this.handleJoin} type='submit'>Submit</button>
+                    </div>
+                </div>
+            </>
+                    )
 
-       const modalswitch = () => {
+        const modalswitch = () => {
            
             if (this.state.phasestate === 1) {
                  return firstphase ;
             } else if (this.state.phasestate === 2) {
                  return secondphase ;
-            } else {
+            } else if (this.state.phasestate=== 3){
                  return thirdphase ;
+            } else {
+                return fourthphase
             }
         };
+
 
         
         return(

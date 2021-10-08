@@ -1,12 +1,28 @@
 class Api::CommentsController < ApplicationController
 
-    def create
-        @comment = Comment.new(comment_params)
-        @comment.user_id = @current_user.id
+    def index
 
+        
+        @comments = Comment.where(channel_id: params[:channel_id]) 
+        render :index
+
+    end
+
+
+    def create
+        
+        @comment = Comment.new(comment_params)
+        @comment.user_id = current_user.id
+        # @comment.server_id = params[:server_id]
+        @comment.channel_id = params[:channel_id]
+        @comment.is_private = false
+        
         if @comment.save
+            # socket = {message: {message: @comment.message, sender_id: @comment.user_id, channel_id: @comment.channel_id}}
+            # CommentsChannel.broadcast_to("comments_channel", socket)
             render :show
         else
+            
             render json: @comment.errors.full_messages, status:422
         end
     end
@@ -35,6 +51,9 @@ class Api::CommentsController < ApplicationController
 
             @comment.destroy
             render json: @comment.id
+        else
+            render json: ['This is not your message to delete!'], status: 422
+
         end
 
     end
