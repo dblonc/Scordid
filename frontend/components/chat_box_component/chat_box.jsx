@@ -134,7 +134,7 @@ class Chatbox extends React.Component {
                     
                     
                     <div className="chat-area">
-                        <input placeholder="Message this channel" id="chat-bar" type="text" className="chat-input" onChange={this.handleChange}></input><button onClick={this.handleSubmit}>Send</button>
+                        <input placeholder="Message this channel" id="chat-bar" type="text" className="chat-input" onChange={this.handleChange}></input>
                         
                     </div>
                 </div>

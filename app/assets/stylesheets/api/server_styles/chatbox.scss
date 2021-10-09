@@ -66,12 +66,14 @@
 }
 
 .chat-area{
-    position: relative;
+    position: absolute;
     flex-shrink: 0;
     padding-bottom: 16px;
     padding-top: 16px;
     margin-top: -8px;
     display: block;
+    bottom: 5px;
+    width: 100%;
 }
 
 .chat-comments{

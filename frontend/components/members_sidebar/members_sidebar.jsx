@@ -27,7 +27,7 @@ class MembersSidebar extends React.Component {
                 <div className = "member-name">
                     <span className="member-listing"># member no 1</span>
                 </div> */}
-               <h2 className="group-title">Members</h2>
+               <h2 className="group-title">Members - {this.props.serverMembers.length}</h2>
                 
                     {/* <span className="member-listing"># member no 2</span> */}
                     {this.fetchServerMembers()}
