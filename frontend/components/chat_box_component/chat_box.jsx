@@ -1,5 +1,6 @@
 import React from 'react';
 import Members_container from '../members_sidebar/members_container';
+import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
 
 
 class Chatbox extends React.Component {
@@ -16,16 +17,19 @@ class Chatbox extends React.Component {
         this.subscribeUser = this.subscribeUser.bind(this)
         this.receiveReply = this.receiveReply.bind(this)
         this.receiveCommentUser = this.receiveCommentUser.bind(this)
+        this.receiveDate = this.receiveDate.bind(this)
+
+        this.messageEnd = React.createRef();
     }
 
     handleChange(e){
-     
         this.setState({
             comment: { message: e.target.value },
         })
     }
 
     handleSubmit(e){
+        if (e.keyCode === 13) {
         e.preventDefault();
         
         const channel_id = parseInt(this.props.match.params.channel_id )
@@ -43,18 +47,21 @@ class Chatbox extends React.Component {
         })
         document.getElementById('chat-bar').value = ""
 
-        
+    };
         
     }
 
     receiveCommentUser(data){
-        
         if(this.props.user_id === data.user_id){
             return this.props.username
         }else{
             return this.props.server[data.user_id].username
         
         }
+    }
+
+    receiveDate(data){
+        return data.created_at
     }
 
     fetchChannelComments(){
@@ -107,7 +114,6 @@ class Chatbox extends React.Component {
         const server_id = parseInt(this.props.match.params.id)
         this.props.fetchChannelComments(server_id, channel_id)
         this.subscribeUser()
-       
     }
 
     componentDidUpdate(prevProps){
@@ -119,8 +125,12 @@ class Chatbox extends React.Component {
             this.props.fetchChannelComments(server_id, this.props.match.params.channel_id)
             this.subscribeUser()
         }
+        if(this.messageEnd.current){
+            this.messageEnd.current.scrollIntoView(false)
+        }
     }
 
+   
 
     render() {
         return (
@@ -129,12 +139,12 @@ class Chatbox extends React.Component {
                     <div className="channel-title-bar">
                        # {this.props.channelname}
                     </div>
-                    
+                <div className="messages-portion" >
                     {this.fetchChannelComments()}                    
-                    
-                    
+                        <div ref={this.messageEnd} />
+                </div>
                     <div className="chat-area">
-                        <input placeholder="Message this channel" id="chat-bar" type="text" className="chat-input" onChange={this.handleChange}></input>
+                        <input placeholder="Message this channel" id="chat-bar" type="text" className="chat-input" onChange={this.handleChange} onKeyDown={this.handleSubmit}></input>
                         
                     </div>
                 </div>
