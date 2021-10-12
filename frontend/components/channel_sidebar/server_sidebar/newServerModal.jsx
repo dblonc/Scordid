@@ -87,12 +87,12 @@ class NewServerModal extends React.Component {
   // Make a new server within the modal
 
     serverCreation(e){
+        debugger
         e.preventDefault();
         const server = Object.assign({}, this.state)
         this.props.createServer(server).then( (res) =>{
             const id = parseInt( Object.keys(res.currentServer)[0])
             this.props.history.push(`/servers/${id}`)
-            // this.props.channelCreation({channelname: "General", description: "Insert Description Here", hostserver_id: parseInt(this.props.match.params.id)})
         }
         )
         .then(this.hideModal())

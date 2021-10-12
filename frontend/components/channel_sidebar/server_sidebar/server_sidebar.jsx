@@ -38,13 +38,15 @@ class ServerSideBar extends React.Component {
             })
         });
         document.addEventListener("click",  (e) => {
-            e.preventDefault();
-            this.setState({ 
-                contextMenuShow: false, 
-                x: 0, 
-                y: 0 
+                if(this.state.contextMenuShow === true){
+                e.preventDefault();
+                this.setState({ 
+                    contextMenuShow: false, 
+                    x: 0, 
+                    y: 0 
+                });
+            }
             });
-        });
     };
 
 
@@ -105,7 +107,7 @@ class ServerSideBar extends React.Component {
 
     serverClick() {
         this.props.fetchServerChannels(this.props.match.params.id)
-        this.props.history.push(`/servers/${server.id}/channels/${server.channels[0].id}`)
+        // this.props.history.push(`/servers/${server.id}/channels/${server.channels[0].id}`)
     }
 
 
