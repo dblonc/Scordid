@@ -12,7 +12,7 @@ class Api::ChannelsController < ApplicationController
 
     def index 
         @server = Server.includes(:channels).find(params[:server_id])
-        @channels = @server.channels
+        @channels = @server.channels.includes(:comments)
         render :index
     end
 

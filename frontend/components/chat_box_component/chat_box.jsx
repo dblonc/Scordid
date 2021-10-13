@@ -55,7 +55,8 @@ class Chatbox extends React.Component {
         if(this.props.user_id === data.user_id){
             return this.props.username
         }else{
-            return this.props.server[data.user_id].username
+            debugger
+            return this.props.server.users[data.user_id].username
         
         }
     }
@@ -117,7 +118,7 @@ class Chatbox extends React.Component {
     }
 
     componentDidUpdate(prevProps){
-        
+        debugger
         const channel_id = parseInt(this.props.match.params.channel_id)
         const server_id = parseInt(this.props.match.params.id)
 
@@ -140,7 +141,7 @@ class Chatbox extends React.Component {
                        # {this.props.channelname}
                     </div>
                 <div className="messages-portion" >
-                    {this.fetchChannelComments()}                    
+                    {/* {this.fetchChannelComments()}                     */}
                         <div ref={this.messageEnd} />
                 </div>
                     <div className="chat-area">

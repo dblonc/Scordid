@@ -62,15 +62,10 @@ class NewServerModal extends React.Component {
         e.preventDefault();
         let cInput = this.state.inviteCode;
         let tempinviteCode = parseInt(cInput)
-        // if (inviteCode.length < 6){
-            //     return(
-                
-                //     )
-                // }
+      
         this.props.joinServer({inviteCode: tempinviteCode}).then((action)=>{
             this.props.hideModal();
             this.props.requestCurrentUserServers();
-            // this.props.history.push()
         })
         this.setState({
             phasestate: 1
@@ -87,11 +82,12 @@ class NewServerModal extends React.Component {
   // Make a new server within the modal
 
     serverCreation(e){
-        debugger
+        
         e.preventDefault();
         const server = Object.assign({}, this.state)
         this.props.createServer(server).then( (res) =>{
-            const id = parseInt( Object.keys(res.currentServer)[0])
+            console.log(res)
+            const id = parseInt( Object.keys(res.currentServer.server)[0])
             this.props.history.push(`/servers/${id}`)
         }
         )

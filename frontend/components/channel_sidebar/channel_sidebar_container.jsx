@@ -8,7 +8,8 @@ import { leaveServer, requestCurrentUserServers} from '../../actions/server_acti
 
 const mSTP = (state, ownProps) => {
 
-    return { currentUser: state.entities.users[state.session.id],
+    return { 
+        currentUser: state.entities.users[state.session.id],
         servers: state.entities.servers,
         serverChannels: Object.values(state.entities.channels),
         serverMembers: state.entities.servers[ownProps.match.params.id].users,

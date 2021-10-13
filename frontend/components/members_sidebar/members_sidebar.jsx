@@ -7,8 +7,8 @@ class MembersSidebar extends React.Component {
     }
 
     fetchServerMembers(){
-        
-        return this.props.serverMembers.map(user=>
+        debugger
+        return this.props.serverMembers.map( user =>
             <ul key = {user.id}>
                 <div className="member-name">                    
                     <span className="member-listing">  {user.username}</span>

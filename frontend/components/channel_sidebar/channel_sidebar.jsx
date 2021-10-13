@@ -66,7 +66,7 @@ class ChannelSidebar extends React.Component {
     }
 
     componentDidMount(){
-        
+        // this.props.requestCurrentUserServers(this.props.user_id)
         this.props.fetchServerChannels(this.props.match.params.id)
     }
 

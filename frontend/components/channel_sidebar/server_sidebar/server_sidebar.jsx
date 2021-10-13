@@ -56,7 +56,8 @@ class ServerSideBar extends React.Component {
                 'position': 'absolute',
                 'top': `${this.state.y}px`,
                 'left': `${this.state.x}px`,
-                'backgroundColor': 'white',
+                'backgroundColor': 'black',
+                'color': 'white',
                 'zIndex': '9999'
             }
             return(

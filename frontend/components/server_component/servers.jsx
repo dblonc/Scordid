@@ -44,6 +44,10 @@ class Servers extends React.Component {
             )
     };
 
+    componentDidMount(){
+        this.props.requestCurrentUserServers(this.props.user_id)
+
+    }
  
 
 render() {
@@ -67,7 +71,12 @@ render() {
                             <>
                                 <Channel_modal_container showC={this.state.showC} hideCModal={this.hideCModal} />
                                 {/* <Route path = "/servers/:id/" component = {Channel_sidebar_container} */}
-                                <Channel_sidebar_container showC={this.state.showC} showCModal={this.showCModal} hideCModal={this.hideCModal}/>
+                                <Channel_sidebar_container 
+                                showC={this.state.showC} 
+                                showCModal={this.showCModal} 
+                                hideCModal={this.hideCModal}
+                                currentUser={this.props.currentUser}
+                                />
 
                                 <Route path = "/servers/:id/channels/:channel_id">
                                     <Chat_box_container/>

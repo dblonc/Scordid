@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { requestCurrentUserServers, deleteServer } from '../../actions/server_actions'
 
 const mSTP = (state) =>({
+    currentUser: state.entities.users[state.session.id],
     errors: state.errors.session,
     user_id: state.session.id,
     currentUserServers: state.entities.servers.currentUserServers
