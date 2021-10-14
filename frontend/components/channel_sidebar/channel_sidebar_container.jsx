@@ -15,7 +15,6 @@ const mSTP = (state, ownProps) => {
         serverMembers: state.entities.servers[ownProps.match.params.id].users,
         user_id: state.session.id,
         username: state.entities.users[state.session.id].username
-
      }
 };
 

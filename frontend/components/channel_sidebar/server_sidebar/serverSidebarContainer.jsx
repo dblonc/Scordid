@@ -4,6 +4,7 @@ import ServerSideBar from './server_sidebar'
 import { Link, withRouter } from 'react-router-dom';
 import {requestCurrentUserServers, deleteServer} from '../../../actions/server_actions'
 import { fetchServerChannels } from '../../../actions/channel_actions';
+import { fetchChannelComments } from '../../../actions/comment_actions';
 
 const mSTP = (state) => ({
     errors: state.errors.session,
@@ -18,6 +19,7 @@ const mDTP = dispatch => ({
     createNewServer: server => dispatch(createNewServer(server)),
     deleteServer: serverId => dispatch(deleteServer(serverId)),
     fetchServerChannels: serverId => dispatch(fetchServerChannels(serverId)),
+    fetchChannelComments: (serverId, channelId) => dispatch(fetchChannelComments(serverId, channelId))
 
 
 

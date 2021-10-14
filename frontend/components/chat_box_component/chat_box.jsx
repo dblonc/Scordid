@@ -13,11 +13,12 @@ class Chatbox extends React.Component {
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.fetchChannelComments = this.fetchChannelComments.bind(this)
+        this.fetchOldChannelComments = this.fetchOldChannelComments.bind(this)
         this.subscribeUser = this.subscribeUser.bind(this)
         this.receiveReply = this.receiveReply.bind(this)
         this.receiveCommentUser = this.receiveCommentUser.bind(this)
         this.receiveDate = this.receiveDate.bind(this)
+        this.fetchChannelName = this.fetchChannelName.bind(this)
 
         this.messageEnd = React.createRef();
     }
@@ -29,6 +30,7 @@ class Chatbox extends React.Component {
     }
 
     handleSubmit(e){
+        
         if (e.keyCode === 13) {
         e.preventDefault();
         
@@ -46,7 +48,7 @@ class Chatbox extends React.Component {
             comment: ""
         })
         document.getElementById('chat-bar').value = ""
-
+        
     };
         
     }
@@ -55,8 +57,8 @@ class Chatbox extends React.Component {
         if(this.props.user_id === data.user_id){
             return this.props.username
         }else{
-            debugger
-            return this.props.server.users[data.user_id].username
+            
+            return this.props.server.users[data.user_id]?.username
         
         }
     }
@@ -65,7 +67,28 @@ class Chatbox extends React.Component {
         return data.created_at
     }
 
-    fetchChannelComments(){
+    //works on channel switch but doesn't stream
+    // fetchOldChannelComments(){
+    //     if(this.props.oldcomments.length === 0){
+    //         return null
+    //     }else{
+    //     return this.props.oldcomments.map(comment =>
+    //         <ul key = {comment.id}>
+    //             <h2 className = "chat-comments">
+    //                 <div className="comment-username">
+    //                     {this.receiveCommentUser(comment)}: 
+    //                 </div>
+    //                 <div className="comment-message">
+    //                     {comment.message}
+    //                 </div>
+    //             </h2>
+    //         </ul>
+    //         )
+    //     }
+    // };
+
+    //works on stream but breaks on some channel switch 
+    fetchOldChannelComments(){
         if(this.props.comments.length === 0){
             return null
         }else{
@@ -105,9 +128,11 @@ class Chatbox extends React.Component {
     }
     
     receiveReply(data){
+        
         if(this.props.user_id !== data.comment.user_id){
             this.props.fetchChannelComments(this.props.match.params.id, this.props.match.params.channel_id)
         }
+           
     }
 
     componentDidMount(){
@@ -131,17 +156,23 @@ class Chatbox extends React.Component {
         }
     }
 
-   
+   fetchChannelName(){
+       if(this.props.channelname === undefined){
+           return null
+       }else{
+           return this.props.channelname
+       }
+   }
 
     render() {
         return (
             <>
                 <div className="chat-window">
                     <div className="channel-title-bar">
-                       # {this.props.channelname}
+                       # {this.fetchChannelName()}
                     </div>
                 <div className="messages-portion" >
-                    {/* {this.fetchChannelComments()}                     */}
+                    {this.fetchOldChannelComments()}                    
                         <div ref={this.messageEnd} />
                 </div>
                     <div className="chat-area">

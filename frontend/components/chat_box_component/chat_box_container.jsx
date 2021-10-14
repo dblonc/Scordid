@@ -5,7 +5,7 @@ import Chatbox from './chat_box';
 
 
 const mSTP = (state, ownProps) => {
-    
+    debugger
     return {
         user_id: state.session.id,
         comments: Object.values(state.entities.comments),
@@ -13,7 +13,9 @@ const mSTP = (state, ownProps) => {
         serverMembers: state.entities.servers[ownProps.match.params.id].users,
         username: state.entities.users[state.session.id].username,
         server: state.entities.servers[ownProps.match.params.id],
-        channelname: state.entities.channels[ownProps.match.params.channel_id].channelname
+        channelname: state.entities.channels[ownProps.match.params.channel_id]?.channelname,
+        // oldcomments: Object.values(state.entities.channels[ownProps.match.params.channel_id].comments)
+
 
     }
 }

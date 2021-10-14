@@ -97,7 +97,7 @@ class ServerSideBar extends React.Component {
     return this.props.currentUserServers.map(server =>         
         <ul key = {server.id}>
             <div className="list-icon" >
-                    <Link to={`/servers/${server.id}`}><li className="id-list"> {server.id}</li></Link>
+                    <li className="id-list" onClick={()=>this.serverClick(server)}> {server.id}</li>
                     {this.renderDelete(server)}
             </div>
   
@@ -106,8 +106,8 @@ class ServerSideBar extends React.Component {
        
    };
 
-    serverClick() {
-        this.props.fetchServerChannels(this.props.match.params.id)
+    serverClick(server) {
+        this.props.fetchServerChannels(server.id).then(this.props.fetchChannelComments(server.id, server.general_id)).then(this.props.history.push(`/servers/${server.id}/channels/${server.general_id}`))
         // this.props.history.push(`/servers/${server.id}/channels/${server.channels[0].id}`)
     }
 
