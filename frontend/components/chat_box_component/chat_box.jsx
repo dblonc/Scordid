@@ -143,7 +143,6 @@ class Chatbox extends React.Component {
     }
 
     componentDidUpdate(prevProps){
-        debugger
         const channel_id = parseInt(this.props.match.params.channel_id)
         const server_id = parseInt(this.props.match.params.id)
 

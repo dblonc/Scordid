@@ -5,7 +5,7 @@ import MembersSidebar from './members_sidebar';
 const mSTP = (state, ownProps) => {
 
     return {
-        serverMembers: Object.values(state.entities.servers[ownProps.match.params.id].users)
+        serverMembers: Object.values(state.entities.servers[ownProps.match.params.id]?.users)
 
     }
 

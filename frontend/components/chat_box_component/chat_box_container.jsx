@@ -5,7 +5,6 @@ import Chatbox from './chat_box';
 
 
 const mSTP = (state, ownProps) => {
-    debugger
     return {
         user_id: state.session.id,
         comments: Object.values(state.entities.comments),

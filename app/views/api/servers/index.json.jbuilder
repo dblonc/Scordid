@@ -30,7 +30,7 @@
             json.extract! server, :id, :servername, :description, :owner_id
             json.invite_code server.invite_code
             json.general_id server.channels[0].id
-           json.set! "users" do
+            json.set! "users" do
                 server.users.each do |user|
                     json.set! user.id do 
                         json.extract! user, :id, :username

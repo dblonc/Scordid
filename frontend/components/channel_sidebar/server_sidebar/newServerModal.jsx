@@ -86,7 +86,6 @@ class NewServerModal extends React.Component {
         e.preventDefault();
         const server = Object.assign({}, this.state)
         this.props.createServer(server).then( (res) =>{
-            console.log(res)
             const id = parseInt( Object.keys(res.currentServer.server)[0])
             this.props.history.push(`/servers/${id}`)
         }
