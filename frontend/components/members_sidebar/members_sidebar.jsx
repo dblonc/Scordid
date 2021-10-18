@@ -3,6 +3,10 @@ import React from 'react';
 class MembersSidebar extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            memberLength: this.props.serverMembers.length
+        }
         this.fetchServerMembers = this.fetchServerMembers.bind(this)
     }
 
@@ -18,18 +22,19 @@ class MembersSidebar extends React.Component {
             
             )
     }
+
+    componentDidUpdate(prevProps, prevState){
+        debugger
+        if (prevState.memberLength.length !== this.state.memberLength){
+            this.fetchServerMembers()
+        }
+    }
   
     render() {
         return (
             <div className="member-sidebar-nav">
-                {/* <h2 className="mod-title">Mod - 1</h2>
-                <div className = "member-name">
-                    <span className="member-listing"># member no 1</span>
-                </div> */}
                <h2 className="group-title">Members - {this.props.serverMembers.length}</h2>
-                
-                    {/* <span className="member-listing"># member no 2</span> */}
-                    {this.fetchServerMembers()}
+                {this.fetchServerMembers()}
             </div>
         )
     }

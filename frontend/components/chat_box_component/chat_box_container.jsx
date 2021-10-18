@@ -14,7 +14,7 @@ const mSTP = (state, ownProps) => {
         server: state.entities.servers[ownProps.match.params.id],
         channelname: state.entities.channels[ownProps.match.params.channel_id]?.channelname,
         // oldcomments: Object.values(state.entities.channels[ownProps.match.params.channel_id].comments)
-
+        invite_code: state.entities.servers[ownProps.match.params.id]?.invite_code
 
     }
 }

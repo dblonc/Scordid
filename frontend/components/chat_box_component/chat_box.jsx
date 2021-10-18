@@ -159,7 +159,9 @@ class Chatbox extends React.Component {
        if(this.props.channelname === undefined){
            return null
        }else{
-           return this.props.channelname
+           return(
+               <div>{this.props.channelname} <p>Invite Code is {this.props.invite_code}</p></div>
+           ) 
        }
    }
 
