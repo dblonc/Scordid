@@ -24,7 +24,7 @@ class MembersSidebar extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState){
-        debugger
+        
         if (prevState.memberLength.length !== this.state.memberLength){
             this.fetchServerMembers()
         }

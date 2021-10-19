@@ -27,7 +27,7 @@ class ServerSideBar extends React.Component {
     };
 
     handleContextMenu(){
-        document.addEventListener("contextmenu",  (e) => {
+       document.addEventListener("contextmenu",  (e) => {
             e.preventDefault();
             const clickX = e.clientX;
             const clickY = e.clientY;
@@ -37,7 +37,7 @@ class ServerSideBar extends React.Component {
                 y: clickY
             })
         });
-        document.addEventListener("click",  (e) => {
+            document.addEventListener("click",  (e) => {
                 if(this.state.contextMenuShow === true){
                 e.preventDefault();
                 this.setState({ 
@@ -47,6 +47,7 @@ class ServerSideBar extends React.Component {
                 });
             }
             });
+        
     };
 
 
@@ -75,6 +76,7 @@ class ServerSideBar extends React.Component {
             return null
         }
     }
+
     onDelete(server) {
         
         this.props.deleteServer(server.id)
@@ -97,7 +99,7 @@ class ServerSideBar extends React.Component {
     return this.props.currentUserServers.map(server =>         
         <ul key = {server.id}>
             <div className="list-icon" >
-                    <li className="id-list" onClick={()=>this.serverClick(server)}> {server.id}</li>
+                    <li className="id-list" id="server-btn" onClick={()=>this.serverClick(server)}> {server.id}</li>
                     {this.renderDelete(server)}
             </div>
   
@@ -124,6 +126,7 @@ class ServerSideBar extends React.Component {
                 {this.fetchCurrentServers()}
                 <button className="add_server_btn" onClick={e => this.props.showModal()} >+</button>
                 {this.renderContextMenu()}
+                {this.handleContextMenu()}
             </div>
         )
     }
