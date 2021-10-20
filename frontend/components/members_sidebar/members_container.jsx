@@ -6,9 +6,10 @@ import { fetchServerChannels } from '../../actions/channel_actions';
 
 
 const mSTP = (state, ownProps) => {
-    
+    let serverMembers = state.entities.servers[ownProps.match.params.id]?.users
+
     return {
-        serverMembers: Object.values(state.entities.servers[ownProps.match.params.id]?.users),
+        serverMembers: serverMembers ? Object.values(serverMembers) : []
         // serverMembers: state.entities.servers[ownProps.match.params.id]?.users,
 
     }

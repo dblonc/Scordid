@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
-
 class ChannelSidebar extends React.Component {
     constructor(props) {
         super(props);
@@ -28,6 +26,24 @@ class ChannelSidebar extends React.Component {
             this.props.fetchServerChannels(this.props.match.params.id)
         }
     }
+
+//Fetches the channel list and associated functions with channels
+    fetchServerChannels() {
+
+        return this.props.serverChannels.map(channel =>
+            <ul key={channel.id}>
+                <div className="channel-listing-wrapper">
+                    <div className="channel-box">
+                        <Link to={`/servers/${this.props.match.params.id}/channels/${channel.id}`}><li className="channel-listing"># {channel.channelname}</li></Link>
+                        {this.renderDelete(channel)}
+                    </div>
+                </div>
+            </ul>
+
+
+        )
+    }
+
     renderChannelName(){
         
         let id = parseInt(this.props.match.params.id)
@@ -65,24 +81,6 @@ class ChannelSidebar extends React.Component {
         }
     }
 
-    fetchServerChannels(){
-        
-        return this.props.serverChannels.map(channel =>
-                <ul key = {channel.id}>
-                    <div className="channel-listing-wrapper">
-                        <div className="channel-box">
-                            <Link to={`/servers/${this.props.match.params.id}/channels/${channel.id}`}><li className="channel-listing"># {channel.channelname}</li></Link>
-                            {this.renderDelete(channel)}
-                        </div>
-                    </div>
-                </ul>
-                
-            
-            )
-    }
-
-  
-
     leaveServer(e){
         
         e.preventDefault();
@@ -91,6 +89,9 @@ class ChannelSidebar extends React.Component {
             this.props.history.push('/servers/')
         })
     }
+
+
+//handles and renders the context menu 
 
     handleContextMenu(e) {
         document.addEventListener("contextmenu", (e) => {
@@ -145,6 +146,9 @@ class ChannelSidebar extends React.Component {
         }
     }
 
+
+
+
     render() {
         if(this.props.servers.length < 1){
             return null
@@ -155,15 +159,6 @@ class ChannelSidebar extends React.Component {
                 <div className="channel-sidebar-nav">
                     {this.renderChannelName()}
                     <div className = "channel-list">
-                        {/* <div className="channel-box">
-                            <span className="channel-listing"># channel no 1</span>
-                        </div>
-                        <div className="channel-box">
-                            <span className="channel-listing"># channel no 2</span>
-                        </div>
-                        <div className="channel-box">
-                            <span className="channel-listing"># channel no 3</span>
-                        </div> */}
                         {this.fetchServerChannels()}
                         {this.renderAddChannel()}
                         {this.handleContextMenu()}

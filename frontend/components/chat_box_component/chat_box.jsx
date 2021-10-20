@@ -29,7 +29,6 @@ class Chatbox extends React.Component {
         this.props.fetchChannelComments(server_id, channel_id)
         this.props.requestCurrentUserServers(this.props.user_id)
 
-
         this.subscribeUser()
     }
 
@@ -46,6 +45,7 @@ class Chatbox extends React.Component {
         }
     }
 
+//simple handle change for comment box
 
     handleChange(e){
         this.setState({
@@ -53,6 +53,7 @@ class Chatbox extends React.Component {
         })
     }
 
+//a handle submit that calls the Action Cable speak method to broadcast the sent comment to the channel
     handleSubmit(e){
         
         if (e.keyCode === 13) {
@@ -77,41 +78,30 @@ class Chatbox extends React.Component {
         
     }
 
-    receiveCommentUser(data){
-        if(this.props.user_id === data.user_id){
-            return this.props.username
-        }else{
-            
-            return this.props.server.users[data.user_id]?.username
-        
-        }
+//subscribes the user upon a channel click to receive messages
+    subscribeUser() {
+        const channel_id = this.props.match.params.channel_id
+        App.cable.subscriptions.create({ channel: "CommentsChannel" },
+
+            {
+                received: data => {
+                    this.receiveReply(data)
+
+                },
+
+                speak: function (data) {
+                    return this.perform("speak", data)
+                }
+            }
+
+        )
+
     }
 
-    receiveDate(data){
-        return data.created_at
-    }
 
-    //works on channel switch but doesn't stream
-    // fetchOldChannelComments(){
-    //     if(this.props.oldcomments.length === 0){
-    //         return null
-    //     }else{
-    //     return this.props.oldcomments.map(comment =>
-    //         <ul key = {comment.id}>
-    //             <h2 className = "chat-comments">
-    //                 <div className="comment-username">
-    //                     {this.receiveCommentUser(comment)}: 
-    //                 </div>
-    //                 <div className="comment-message">
-    //                     {comment.message}
-    //                 </div>
-    //             </h2>
-    //         </ul>
-    //         )
-    //     }
-    // };
 
-    //works on stream but breaks on some channel switch 
+//fetches all the comments and has specific functions to fetch data associated with comments
+
     fetchOldChannelComments(){
         if(this.props.comments.length === 0){
             return null
@@ -130,25 +120,19 @@ class Chatbox extends React.Component {
             )
         }
     };
-    
 
-    subscribeUser(){
-        const channel_id = this.props.match.params.channel_id
-        App.cable.subscriptions.create({ channel: "CommentsChannel"},
+    receiveCommentUser(data) {
+        if (this.props.user_id === data.user_id) {
+            return this.props.username
+        } else {
 
-            {
-                received: data => {
-                    this.receiveReply(data)
+            return this.props.server.users[data.user_id]?.username
 
-                },
+        }
+    }
 
-                speak: function (data) {
-                    return this.perform("speak", data)
-                }
-            }
-
-        )
-        
+    receiveDate(data) {
+        return data.created_at
     }
     
     receiveReply(data){
@@ -168,6 +152,9 @@ class Chatbox extends React.Component {
            ) 
        }
    }
+
+
+//handles and renders the context menu 
 
     handleContextMenu(e) {
         document.addEventListener("contextmenu", (e) => {
@@ -195,7 +182,6 @@ class Chatbox extends React.Component {
 
     };
 
-
     renderContextMenu() {
         if (this.state.mContextMenuShow === true) {
             var contextStyle = {
@@ -221,6 +207,8 @@ class Chatbox extends React.Component {
             return null
         }
     }
+
+
 
     render() {
         return (

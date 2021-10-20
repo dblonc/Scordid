@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ServerContextMenu from '../../context_menu_components/server_context_menu';
 
 class ServerSideBar extends React.Component {
     constructor(props) {
@@ -10,7 +9,9 @@ class ServerSideBar extends React.Component {
             contextMenuShow: false,
             x: 0,
             y: 0,
-            serverPick: {id:"", owner_id: "", invite_code: "" }
+            picked_id: "",
+            picked_owner_id: "", 
+            picked_invite_code: "" 
         }
 
 
@@ -19,6 +20,8 @@ class ServerSideBar extends React.Component {
         this.serverClick = this.serverClick.bind(this)
         this.handleContextMenu = this.handleContextMenu.bind(this)
         this.renderContextMenu = this.renderContextMenu.bind(this)
+        this.leaveServer = this.leaveServer.bind(this)
+        this.renderLeaveorDelete = this.renderLeaveorDelete.bind(this)
     }
 
     componentDidMount() {
@@ -38,7 +41,10 @@ class ServerSideBar extends React.Component {
                 this.setState({
                     contextMenuShow: true,
                     x: clickX,
-                    y: clickY
+                    y: clickY,
+                    picked_id: e.target.id, 
+                    picked_owner_id: this.props.servers[e.target.id].owner_id, 
+                    picked_invite_code: this.props.servers[e.target.id].invite_code
                 })
         }});
             document.addEventListener("click",  (e) => {
@@ -56,25 +62,22 @@ class ServerSideBar extends React.Component {
 
 
     renderContextMenu(){
+        // debugger
         if(this.state.contextMenuShow===true){
             var contextStyle ={
-                'position': 'absolute',
                 'top': `${this.state.y}px`,
-                'left': `${this.state.x}px`,
-                'backgroundColor': 'black',
-                'color': 'white',
-                'zIndex': '9999'
+                'left': `${this.state.x}px`
             }
             return(
                 <div className = "server-context" style = {contextStyle}>
+                {/* // <div className = "server-context" style ={{top:`${this.state.y}px`}}> */}
                     <div>
-                        This is a context menu
+                        <span onClick={()=>navigator.clipboard.writeText(this.state.picked_invite_code)}>Copy Invite Code</span>
                     </div>
                     <div>
-                        This is option 2
+                        {this.renderLeaveorDelete()}
                     </div>
                 </div>
-                // <ServerContextMenu style={contextStyle}/>
             )
         }else{
             return null
@@ -82,23 +85,44 @@ class ServerSideBar extends React.Component {
     }
 
 
-//handles delete functionality
+//functions listed in the context menu
 
-    onDelete(server) {
-        
-        this.props.deleteServer(server.id)
+    renderLeaveorDelete(){
+        debugger
+        if(this.state.picked_owner_id === this.props.user_id){
+            return(
+                <span onClick={this.onDelete}>Delete Server</span>
+            )
+        }else{
+            return(
+                <span onClick={this.leaveServer}>Leave Server</span>
+            )
+        }
+    }
+
+    onDelete() { 
+        this.props.deleteServer(this.state.picked_id)
             .then(this.props.history.push('/servers/'))
     };
 
 
-    renderDelete(data){
-        if(this.props.user_id===data.owner_id){
-            return(
-            <button onClick={e => this.onDelete(data)}>Del</button>
-            )
-        }else{
-            return null
-        }
+    // renderDelete(data){
+    //     if(this.props.user_id===data.owner_id){
+    //         return(
+    //         <button onClick={e => this.onDelete(data)}>Del</button>
+    //         )
+    //     }else{
+    //         return null
+    //     }
+    // }
+
+    leaveServer(e) {
+        
+        e.preventDefault();
+        this.props.leaveServer({server_id: this.state.picked_id}).then(() => {
+            this.props.requestCurrentUserServers();
+            this.props.history.push('/servers/')
+        })
     }
 
 
@@ -109,8 +133,7 @@ class ServerSideBar extends React.Component {
     return this.props.currentUserServers.map(server =>         
         <ul key = {server.id}>
             <div className="list-icon" >
-                    <li className="id-list" id="server-btn" onClick={()=>this.serverClick(server)}> {server.id}</li>
-                    {this.renderDelete(server)}
+                    <li className="id-list" id={server.id} onClick={()=>this.serverClick(server)}> {server.id}</li>
             </div>
   
         </ul>
