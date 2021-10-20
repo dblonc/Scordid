@@ -1,14 +1,13 @@
 import React from 'react';
 import Members_container from '../members_sidebar/members_container';
-import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
-
 
 class Chatbox extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            comment: {message:""}
+            comment: {message:""},
+            mContextMenuShow: false
         }
 
         this.handleChange = this.handleChange.bind(this)
@@ -19,9 +18,34 @@ class Chatbox extends React.Component {
         this.receiveCommentUser = this.receiveCommentUser.bind(this)
         this.receiveDate = this.receiveDate.bind(this)
         this.fetchChannelName = this.fetchChannelName.bind(this)
-
+        this.renderContextMenu = this.renderContextMenu.bind(this)
+        this.handleContextMenu = this.handleContextMenu.bind(this)
         this.messageEnd = React.createRef();
     }
+
+    componentDidMount() {
+        const channel_id = parseInt(this.props.match.params.channel_id)
+        const server_id = parseInt(this.props.match.params.id)
+        this.props.fetchChannelComments(server_id, channel_id)
+        this.props.requestCurrentUserServers(this.props.user_id)
+
+
+        this.subscribeUser()
+    }
+
+    componentDidUpdate(prevProps) {
+        const channel_id = parseInt(this.props.match.params.channel_id)
+        const server_id = parseInt(this.props.match.params.id)
+
+        if (prevProps.match.params.channel_id !== this.props.match.params.channel_id) {
+            this.props.fetchChannelComments(server_id, this.props.match.params.channel_id)
+            this.subscribeUser()
+        }
+        if (this.messageEnd.current) {
+            this.messageEnd.current.scrollIntoView(false)
+        }
+    }
+
 
     handleChange(e){
         this.setState({
@@ -135,26 +159,6 @@ class Chatbox extends React.Component {
            
     }
 
-    componentDidMount(){
-        const channel_id = parseInt(this.props.match.params.channel_id)
-        const server_id = parseInt(this.props.match.params.id)
-        this.props.fetchChannelComments(server_id, channel_id)
-        this.subscribeUser()
-    }
-
-    componentDidUpdate(prevProps){
-        const channel_id = parseInt(this.props.match.params.channel_id)
-        const server_id = parseInt(this.props.match.params.id)
-
-        if(prevProps.match.params.channel_id !== this.props.match.params.channel_id){
-            this.props.fetchChannelComments(server_id, this.props.match.params.channel_id)
-            this.subscribeUser()
-        }
-        if(this.messageEnd.current){
-            this.messageEnd.current.scrollIntoView(false)
-        }
-    }
-
    fetchChannelName(){
        if(this.props.channelname === undefined){
            return null
@@ -165,6 +169,59 @@ class Chatbox extends React.Component {
        }
    }
 
+    handleContextMenu(e) {
+        document.addEventListener("contextmenu", (e) => {
+            if (e.target.className === "comment-message" || e.target.className === "comment-username" ) {
+                e.preventDefault();
+                const clickX = e.clientX;
+                const clickY = e.clientY;
+                this.setState({
+                    mContextMenuShow: true,
+                    x: clickX,
+                    y: clickY
+                })
+            }
+        });
+        document.addEventListener("click", (e) => {
+            if (this.state.mContextMenuShow === true) {
+                e.preventDefault();
+                this.setState({
+                    mContextMenuShow: false,
+                    x: 0,
+                    y: 0
+                });
+            }
+        });
+
+    };
+
+
+    renderContextMenu() {
+        if (this.state.mContextMenuShow === true) {
+            var contextStyle = {
+                'position': 'absolute',
+                'top': `${this.state.y}px`,
+                'left': `${this.state.x}px`,
+                'backgroundColor': 'black',
+                'color': 'white',
+                'zIndex': '9999'
+            }
+            return (
+                <div className="server-context" style={contextStyle}>
+                    <div>
+                        This is a comment context menu
+                    </div>
+                    <div>
+                        This is a comment option 2
+                    </div>
+                </div>
+                // <ServerContextMenu style={contextStyle}/>
+            )
+        } else {
+            return null
+        }
+    }
+
     render() {
         return (
             <>
@@ -173,7 +230,9 @@ class Chatbox extends React.Component {
                        # {this.fetchChannelName()}
                     </div>
                 <div className="messages-portion" >
-                    {this.fetchOldChannelComments()}                    
+                    {this.fetchOldChannelComments()} 
+                    {this.handleContextMenu()}
+                    {this.renderContextMenu()}                   
                         <div ref={this.messageEnd} />
                 </div>
                     <div className="chat-area">

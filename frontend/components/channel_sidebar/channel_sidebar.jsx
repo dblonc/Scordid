@@ -7,21 +7,36 @@ class ChannelSidebar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            showC: false
+            showC: false,
+            cContextMenuShow: false
         }
         this.fetchServerChannels = this.fetchServerChannels.bind(this)
         this.leaveServer = this.leaveServer.bind(this)
         this.renderAddChannel = this.renderAddChannel.bind(this)
         this.renderDelete = this.renderDelete.bind(this)
+        this.renderContextMenu = this.renderContextMenu.bind(this)
+        this.handleContextMenu = this.handleContextMenu.bind(this)
     }
 
+    componentDidMount() {
+        this.props.requestCurrentUserServers()
+        this.props.fetchServerChannels(this.props.match.params.id)
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.match.params.id !== this.props.match.params.id) {
+            this.props.fetchServerChannels(this.props.match.params.id)
+        }
+    }
     renderChannelName(){
         
         let id = parseInt(this.props.match.params.id)
         return(
             <div className="channel-title-container">
                 <div className="title-box">
-                    <h3 className="channel-title">{this.props.servers[id].servername}</h3>
+                    {/* {FLAG HERE} */}
+                    {/* <h3 className="channel-title">{this.props.servers[id].servername}</h3> */}
+                    <h3 className="channel-title">{this.props.servers[id]?.servername}</h3>
                 </div>
             </div>
         )
@@ -29,8 +44,9 @@ class ChannelSidebar extends React.Component {
 
     renderAddChannel(){
         let id = parseInt(this.props.match.params.id)
-
-        if(this.props.user_id===this.props.servers[id].owner_id){
+        {/* {FLAG HERE} */ }
+        // if(this.props.user_id===this.props.servers[id].owner_id){
+        if(this.props.user_id===this.props.servers[id]?.owner_id){
             return(
                 <button onClick={e => this.props.showCModal()} >+</button>
 
@@ -40,8 +56,8 @@ class ChannelSidebar extends React.Component {
 
     renderDelete(data){
         let id = parseInt(this.props.match.params.id)
-
-        if (this.props.user_id === this.props.servers[id].owner_id) {
+        {/* {FLAG HERE} */ }
+        if (this.props.user_id === this.props.servers[id]?.owner_id) {
             return (
                 <button onClick={e => this.props.deleteChannel(data.id, data.hostserver_id)}>Del</button>
 
@@ -65,16 +81,7 @@ class ChannelSidebar extends React.Component {
             )
     }
 
-    componentDidMount(){
-        // this.props.requestCurrentUserServers(this.props.user_id)
-        this.props.fetchServerChannels(this.props.match.params.id)
-    }
-
-    componentDidUpdate(prevProps){
-        if(prevProps.match.params.id !== this.props.match.params.id){
-            this.props.fetchServerChannels(this.props.match.params.id)
-        }
-    }
+  
 
     leaveServer(e){
         
@@ -85,7 +92,58 @@ class ChannelSidebar extends React.Component {
         })
     }
 
+    handleContextMenu(e) {
+        document.addEventListener("contextmenu", (e) => {
+            if (e.target.className === "channel-listing") {
+                e.preventDefault();
+                const clickX = e.clientX;
+                const clickY = e.clientY;
+                this.setState({
+                    cContextMenuShow: true,
+                    x: clickX,
+                    y: clickY
+                })
+            }
+        });
+        document.addEventListener("click", (e) => {
+            if (this.state.cContextMenuShow === true) {
+                e.preventDefault();
+                this.setState({
+                    cContextMenuShow: false,
+                    x: 0,
+                    y: 0
+                });
+            }
+        });
 
+    };
+
+
+    renderContextMenu() {
+        if (this.state.cContextMenuShow === true) {
+            var contextStyle = {
+                'position': 'absolute',
+                'top': `${this.state.y}px`,
+                'left': `${this.state.x}px`,
+                'backgroundColor': 'black',
+                'color': 'white',
+                'zIndex': '9999'
+            }
+            return (
+                <div className="server-context" style={contextStyle}>
+                    <div>
+                        This is a channel context menu
+                    </div>
+                    <div>
+                        This is a channel option 2
+                    </div>
+                </div>
+                // <ServerContextMenu style={contextStyle}/>
+            )
+        } else {
+            return null
+        }
+    }
 
     render() {
         if(this.props.servers.length < 1){
@@ -108,6 +166,8 @@ class ChannelSidebar extends React.Component {
                         </div> */}
                         {this.fetchServerChannels()}
                         {this.renderAddChannel()}
+                        {this.handleContextMenu()}
+                        {this.renderContextMenu()}
                         <button onClick={this.leaveServer}>Leave</button>
                     </div>
                     <div className="personal-tab">

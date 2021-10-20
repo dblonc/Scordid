@@ -4,13 +4,15 @@ class MembersSidebar extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            memberLength: this.props.serverMembers.length
-        }
+       
         this.fetchServerMembers = this.fetchServerMembers.bind(this)
     }
 
     fetchServerMembers(){
+        {/* {FLAG HERE} */ }
+        if(!this.props.serverMembers){
+            return null
+        }else{
         return this.props.serverMembers.map( user =>
             <ul key = {user.id}>
                 <div className="member-name">                    
@@ -21,19 +23,19 @@ class MembersSidebar extends React.Component {
             
             
             )
-    }
-
-    componentDidUpdate(prevProps, prevState){
-        
-        if (prevState.memberLength.length !== this.state.memberLength){
-            this.fetchServerMembers()
         }
     }
+
+   componentDidMount(){
+       this.props.requestCurrentUserServers()
+       this.props.fetchServerChannels(this.props.match.params.id)
+   }
   
     render() {
         return (
             <div className="member-sidebar-nav">
-               <h2 className="group-title">Members - {this.props.serverMembers.length}</h2>
+                {/* {FLAG HERE} */}
+               <h2 className="group-title">Members - {this.props.serverMembers?.length}</h2>
                 {this.fetchServerMembers()}
             </div>
         )

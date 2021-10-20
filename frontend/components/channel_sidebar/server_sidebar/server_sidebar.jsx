@@ -22,21 +22,25 @@ class ServerSideBar extends React.Component {
     }
 
     componentDidMount() {
-        this.props.requestCurrentUserServers(this.props.user_id)
+        // this.props.requestCurrentUserServers(this.props.user_id)
         this.handleContextMenu();
     };
 
-    handleContextMenu(){
+
+//handles and renders the context menu 
+
+    handleContextMenu(e){
        document.addEventListener("contextmenu",  (e) => {
-            e.preventDefault();
-            const clickX = e.clientX;
-            const clickY = e.clientY;
-            this.setState({
-                contextMenuShow: true,
-                x: clickX,
-                y: clickY
-            })
-        });
+            if(e.target.className === "id-list"){
+                e.preventDefault();
+                const clickX = e.clientX;
+                const clickY = e.clientY;
+                this.setState({
+                    contextMenuShow: true,
+                    x: clickX,
+                    y: clickY
+                })
+        }});
             document.addEventListener("click",  (e) => {
                 if(this.state.contextMenuShow === true){
                 e.preventDefault();
@@ -77,6 +81,9 @@ class ServerSideBar extends React.Component {
         }
     }
 
+
+//handles delete functionality
+
     onDelete(server) {
         
         this.props.deleteServer(server.id)
@@ -94,6 +101,9 @@ class ServerSideBar extends React.Component {
         }
     }
 
+
+//renders the server list
+
     fetchCurrentServers(){
         
     return this.props.currentUserServers.map(server =>         
@@ -108,10 +118,16 @@ class ServerSideBar extends React.Component {
        
    };
 
+    
+    
+//paths each server button to the first channel of the server
+
     serverClick(server) {
         this.props.fetchServerChannels(server.id).then(this.props.fetchChannelComments(server.id, server.general_id)).then(this.props.history.push(`/servers/${server.id}/channels/${server.general_id}`))
         // this.props.history.push(`/servers/${server.id}/channels/${server.channels[0].id}`)
     }
+
+
 
 
     render() {
