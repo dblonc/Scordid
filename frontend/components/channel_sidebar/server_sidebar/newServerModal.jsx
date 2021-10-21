@@ -117,8 +117,8 @@ class NewServerModal extends React.Component {
                     <button className="my-own" onClick={this.modalforward}>Create my Own</button>
                 </div>
                 <div className="modal-join-section">
-                    Have an Invite Already?
-                    <button className="join_server_btn" onClick={this.modalJoin}>Join Server</button>
+                    <h3 className="inv-text">Have an Invite Already?</h3>
+                    <button className="join-server-btn" onClick={this.modalJoin}>Join Server</button>
 
                 </div>
             </>
@@ -212,7 +212,7 @@ class NewServerModal extends React.Component {
                         <input type="text" onChange={this.updateCode}/>
                     </div>
                     <div>
-                        <button>back</button>
+                        <button onClick={()=>this.setState({phasestate: 1})}>back</button>
                         <br />
                         <button onClick={this.handleJoin} type='submit'>Submit</button>
                     </div>

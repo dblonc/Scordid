@@ -109,6 +109,11 @@
     cursor: pointer;
     width: 100%;
     padding: 0;
+    height: 66px;
+}
+
+.my-own:hover{
+   background-color: rgba(116, 127, 141, 0.08);
 }
 
 .modal-background{
@@ -301,4 +306,44 @@
 .server-create:hover{
     background-color: #5c6fb1;
     cursor: pointer;
+}
+
+.modal-join-section{
+    background-color: #f6f6f7;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    border-radius: 0 0 5px 5px;
+    padding: 16px;
+    
+}
+
+.join-server-btn{
+    color: white;
+    background-color: #747f8d;
+    align-self: stretch;
+    width: auto;
+    height: 38px;
+    min-width: 96px;
+    position: relative;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 2px 16px;
+}
+
+.join-server-btn:hover{
+   transition:  background-color .17s ease,color .17s ease;
+   background-color: #5e6772;
+   cursor: pointer;
 }

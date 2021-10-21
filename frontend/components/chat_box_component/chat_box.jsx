@@ -148,7 +148,7 @@ class Chatbox extends React.Component {
            return null
        }else{
            return(
-               <div>{this.props.channelname} <p>Invite Code is {this.props.invite_code}</p></div>
+               <div>{this.props.channelname}</div>
            ) 
        }
    }
@@ -185,16 +185,13 @@ class Chatbox extends React.Component {
     renderContextMenu() {
         if (this.state.mContextMenuShow === true) {
             var contextStyle = {
-                'position': 'absolute',
                 'top': `${this.state.y}px`,
-                'left': `${this.state.x}px`,
-                'backgroundColor': 'black',
-                'color': 'white',
-                'zIndex': '9999'
+                'left': `${this.state.x}px`
+                
             }
             return (
-                <div className="server-context" style={contextStyle}>
-                    <div>
+                <div className="comment-context" style={contextStyle}>
+                    <div >
                         This is a comment context menu
                     </div>
                     <div>

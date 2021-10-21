@@ -20,7 +20,7 @@ class ServerSideBar extends React.Component {
         this.serverClick = this.serverClick.bind(this)
         this.handleContextMenu = this.handleContextMenu.bind(this)
         this.renderContextMenu = this.renderContextMenu.bind(this)
-        this.leaveServer = this.leaveServer.bind(this)
+        // this.leaveServer = this.leaveServer.bind(this)
         this.renderLeaveorDelete = this.renderLeaveorDelete.bind(this)
     }
 
@@ -62,7 +62,6 @@ class ServerSideBar extends React.Component {
 
 
     renderContextMenu(){
-        // debugger
         if(this.state.contextMenuShow===true){
             var contextStyle ={
                 'top': `${this.state.y}px`,
@@ -71,10 +70,10 @@ class ServerSideBar extends React.Component {
             return(
                 <div className = "server-context" style = {contextStyle}>
                 {/* // <div className = "server-context" style ={{top:`${this.state.y}px`}}> */}
-                    <div>
+                    <div className = "copy-inv">
                         <span onClick={()=>navigator.clipboard.writeText(this.state.picked_invite_code)}>Copy Invite Code</span>
                     </div>
-                    <div>
+                    <div className = "leave-del">
                         {this.renderLeaveorDelete()}
                     </div>
                 </div>
@@ -88,7 +87,7 @@ class ServerSideBar extends React.Component {
 //functions listed in the context menu
 
     renderLeaveorDelete(){
-        debugger
+        
         if(this.state.picked_owner_id === this.props.user_id){
             return(
                 <span onClick={this.onDelete}>Delete Server</span>
@@ -116,14 +115,14 @@ class ServerSideBar extends React.Component {
     //     }
     // }
 
-    leaveServer(e) {
+    // leaveServer(e) {
         
-        e.preventDefault();
-        this.props.leaveServer({server_id: this.state.picked_id}).then(() => {
-            this.props.requestCurrentUserServers();
-            this.props.history.push('/servers/')
-        })
-    }
+    //     e.preventDefault();
+    //     this.props.leaveServer({server_id: this.state.picked_id}).then(() => {
+    //         this.props.requestCurrentUserServers();
+    //         this.props.history.push('/servers/')
+    //     })
+    // }
 
 
 //renders the server list

@@ -45,7 +45,19 @@
     width: 250px;
 }
 
+.ch-header{
+    color: #b9bbbe;
+    padding-right: 25px;
+    font-size: 14px;
+}
 
+.ch-plus{
+    color: #b9bbbe;
+}
+
+.ch-plus:hover{
+    cursor: pointer;
+}
 .channel-listing{
     -webkit-box-flex: 1;
     flex: 1 1 auto;
@@ -64,6 +76,12 @@
 
 .channel-listing:hover{
     color: white;
+}
+
+.channel-listing:focus, .channel-listing:active{
+    color: white;
+    background-color: #51545c;
+
 }
 
 .channel-box:hover{
