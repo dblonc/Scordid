@@ -57,6 +57,7 @@
     transition: .25s;
     text-decoration: underline;
     color: white;
+    cursor: pointer;
 }
 
 .id-list{
@@ -78,3 +79,32 @@
    align-items: center;
    margin: 5px auto;
 }
+
+.draw-server-btn{
+    color: hsl(139,calc(var(--saturation-factor, 1)*47.3%),43.9%);
+    background-color: #36393f;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-box-pack: center;
+    box-sizing: border-box;
+    margin-left: 15px;
+    border-radius: 50%;
+}
+
+.draw-server-btn:hover, .green-plus:hover{
+    color: white;
+    background-color: hsl(139,calc(var(--saturation-factor, 1)*47.3%),43.9%);
+    cursor: pointer;
+    border-radius: 16px;
+}
+
+.green-plus{
+    width: 24px;
+    height: 24px;
+    color:  hsl(139,calc(var(1, 1)*47.3%),43.9%);
+}
+
+

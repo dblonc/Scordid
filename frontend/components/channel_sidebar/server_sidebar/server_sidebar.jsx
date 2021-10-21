@@ -34,7 +34,7 @@ class ServerSideBar extends React.Component {
 
     handleContextMenu(e){
        document.addEventListener("contextmenu",  (e) => {
-            if(e.target.className === "id-list"){
+           if (e.target.className === "id-list" || e.target.className ==="list-icon"){
                 e.preventDefault();
                 const clickX = e.clientX;
                 const clickY = e.clientY;
@@ -131,7 +131,7 @@ class ServerSideBar extends React.Component {
         
     return this.props.currentUserServers.map(server =>         
         <ul key = {server.id}>
-            <div className="list-icon" >
+            <div className="list-icon" id={server.id} onClick={() => this.serverClick(server)} >
                     <li className="id-list" id={server.id} onClick={()=>this.serverClick(server)}> {server.id}</li>
             </div>
   
@@ -162,7 +162,12 @@ class ServerSideBar extends React.Component {
                 <div className= "separator"></div>
                 </a>
                 {this.fetchCurrentServers()}
-                <button className="add_server_btn" onClick={e => this.props.showModal()} >+</button>
+                {/* <button className="add_server_btn" onClick={e => this.props.showModal()} >+</button> */}
+                <div className="draw-server-btn" onClick={e => this.props.showModal()} >
+                    <svg className="green-plus">
+                        <path fill="currentColor" d="M 20 11.1111 H 12.8889 V 4 H 11.1111 V 11.1111 H 4 V 12.8889 H 11.1111 V 20 H 12.8889 V 12.8889 H 20 V 11.1111 Z"></path>
+                    </svg>
+                </div>
                 {this.renderContextMenu()}
                 {this.handleContextMenu()}
             </div>
