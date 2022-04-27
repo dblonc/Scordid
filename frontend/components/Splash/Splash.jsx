@@ -26,11 +26,11 @@ class Splash extends React.Component{
                                 
                                 <div className='heading'>
                                 
-                                <a href="/">Download</a>
-                                <a href="#/why">Why Scordid?</a>
-                                <a href="#/gas">GAS</a>
+                                <a target="_blank" href="https://dblonc.github.io">Portfolio</a>
+                                <a href="/">Why Scordid?</a>
+                                <a href="/">GAS</a>
                                 <a href="/">Safety</a>
-                                <a href="/">Support</a>
+                                <a target="_blank" href="https://www.linkedin.com/in/danielbloncourt/">LinkedIn</a>
                                 
                                     
                                         {!currentUser ? (
